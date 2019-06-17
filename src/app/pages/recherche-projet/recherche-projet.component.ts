@@ -20,8 +20,8 @@ export class RechercheProjetComponent implements OnInit {
               }
               ngOnInit() {
                     this.activatedRoute.params.subscribe(params => {
-                      this.terme = params[' terme '];
-                      this.projet2 = this.projetStatusService.rechercheProjet(params [' terme ']);
+                      this.terme = params['terme'];
+                      this.projet2 = this.projetStatusService.rechercheProjet(params ['terme']);
                 });
 
   }
