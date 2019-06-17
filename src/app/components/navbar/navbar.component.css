@@ -1,0 +1,55 @@
+/** Menu **/
+
+.navegation {
+    background-color: #ffffff;
+}
+
+.nav-link {
+    display: block;
+    padding: .5rem 1rem;
+    color: #E30613;
+}
+
+.navbar-brand {
+    color: #E30613;
+}
+
+.navbar-toggler-icon {
+    color: #E30613;
+}
+
+.navbar-light .navbar-brand,
+.navbar-light .navbar-brand:hover {
+    color: #E30613;
+}
+
+.btn-outline-danger {
+    color: #000000;
+    border-color: #E30613;
+}
+
+.fa-bars:before {
+    color: #E30613;
+}
+
+.navbar-light .navbar-toggler {
+    border: none;
+}
+
+.form-control {
+    color: #000000;
+    border-color: #E30613;
+}
+
+
+/** Logo **/
+
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+
+.navbar .fa-bars {
+    font-size: 2rem;
+    border: none;
+}

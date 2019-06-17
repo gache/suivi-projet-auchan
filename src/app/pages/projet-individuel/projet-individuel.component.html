@@ -1,0 +1,22 @@
+<h1 class="animated fadeIn text-center"> {{ projetI.nom }} <small> ({{ projetI.equipe   }}) </small></h1>
+<!-- para mandar parametro a los pipes se utiliza los ":" -->
+<hr>
+
+<div class="row animated fadeIn fast">
+
+    <div class="col-md-4">
+
+        <img [src]="projetI.icone" class="img-fluid" [alt]="projetI.nom">
+        <br><br>
+        <a [routerLink]="['/projets']" class="btn btn-outline-danger btn-block">Regresar</a>
+
+    </div>
+
+    <div class="col-md-8">
+        <h3 class="text-center">{{ projetI.nom }}</h3>
+        <hr>
+        <p class="text-justify">
+            {{ projetI.description }}
+        </p>
+
+    </div>
