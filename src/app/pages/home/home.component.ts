@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ProjetStatusService} from '../../services/projet-status.service';
-import { Projet, ProjetStatus} from '../../entities/projets';
+import { ProjetAvecStatus } from '../../entities/projets';
 import { Router } from '@angular/router';
 
 
@@ -11,7 +11,8 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  @Input() projets: Projet [] = [];
+  @Input() projets: ProjetAvecStatus [] = [];
+
 
   constructor(private projetStatusService: ProjetStatusService,
               private router: Router ) {
@@ -27,4 +28,9 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['projet-individuel', idx]);
   }
 
+  suiviProjet() {
+    // console.log(this.index);
+    this.router.navigate(['suiviProjet', this.suiviProjet]);
+
+}
 }

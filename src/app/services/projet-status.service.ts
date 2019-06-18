@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Projet, ProjetStatus } from '../../app/entities/projets';
+import { ProjetStatus } from '../../app/entities/projets';
 import { ProjetAvecStatus } from '../entities/projets';
 
 @Injectable({

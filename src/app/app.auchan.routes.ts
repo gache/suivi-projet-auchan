@@ -6,6 +6,7 @@ import { RunExportComponent } from './pages/run-export/run-export.component';
 import { FranchiseComponent } from './pages/franchise/franchise.component';
 import { ProjetIndividuelComponent } from './pages/projet-individuel/projet-individuel.component';
 import { RechercheProjetComponent } from './pages/recherche-projet/recherche-projet.component';
+import { SuiviProjetComponent } from './pages/suivi-projet/suivi-projet.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'franchise', component: FranchiseComponent },
   { path: 'projet-individuel/:id', component: ProjetIndividuelComponent },
   { path: 'recherche-projet/:terme', component: RechercheProjetComponent },
+  { path: 'suiviProjet/:suivi', component: SuiviProjetComponent },
   { path: '**', pathMatch:'full', redirectTo: 'home' }
 ];
 
