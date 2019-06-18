@@ -7,29 +7,14 @@
     <div class="row animated fadeIn fast" *ngIf="projet2.length == 0">
         <div class="col-md-12">
             <div class="alert alert-info text-center" role="alert">
-                N'existe pas de resultat avec les mots {{ terme }}
+                N'existe pas de résultat avec les mots. {{ terme }}
             </div>
         </div>
     </div>
 
     <div class="card-columns">
-        <div class="card  animated fadeIn fast" *ngFor="let projet of projet2">
-            <div class="statusIcon">
-                <i *ngIf="projet.status == 0" class="fas fa-poo-storm fa-5x"></i>
-                <i *ngIf="projet.status == 1" class="fas fa-cloud fa-5x"></i>
-                <i *ngIf="projet.status == 2" class="fas fa-cloud-sun fa-5x"></i>
-                <i *ngIf="projet.status == 3" class="fas fa-sun fa-5x"></i>
-            </div>
-            <div class="card-body">
-                <h5 class="card-title text-center h3 "> {{ projet.nom }} </h5>
-                <p class="card-text text-justify ">{{ projet.description }}
-                </p>
-                <p class="card-text text-center "><small class="text-muted"> {{ projet.equipe }} </small></p>
-                <a (click)="voirProjet( projet.nom )" class="btn btn-outline-danger btn-block mt-4 py-3" style="border-color: #E30613;"> Voir plus</a>
-                <!-- <button (click)="voirProjet(i)" class="btn btn-outline-danger btn-block mt-4 py-3" style="border-color: #E30613;">
-                    Voir plus
-                </button> -->
-            </div>
-        </div>
+        <app-projet-card [projet]= "projet" [index]= "projet.idx" *ngFor="let projet of projet2"> </app-projet-card>
+       
     </div>
 </div>
+

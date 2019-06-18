@@ -29,6 +29,7 @@ import { RunExportComponent } from './pages/run-export/run-export.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProjetIndividuelComponent } from './pages/projet-individuel/projet-individuel.component';
 import { RechercheProjetComponent } from './pages/recherche-projet/recherche-projet.component';
+import { ProjetCardComponent } from './pages/projet-card/projet-card.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { RechercheProjetComponent } from './pages/recherche-projet/recherche-pro
     RunExportComponent,
     NavbarComponent,
     ProjetIndividuelComponent,
-    RechercheProjetComponent
+    RechercheProjetComponent,
+    ProjetCardComponent
   ],
   imports: [
     BrowserModule,

@@ -12,4 +12,5 @@ export interface Projet {
   description: string;
   equipe: string;
   date: string;
+  idx?: number;
 }

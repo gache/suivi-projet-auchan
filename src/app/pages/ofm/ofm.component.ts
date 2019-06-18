@@ -16,7 +16,7 @@ export class OfmComponent implements OnInit {
 
   ngOnInit() {
   // Déclaration de la carte avec les coordonnées du centre et le niveau de zoom.
-  const carte = L.map('frugalmap').setView([50.6311634, 3.0599573], 5);
+  const carte = L.map('frugalmap').setView([50.6311634, 3.0599573], 6 );
 
   L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
     attribution: 'Frugal Map'
