@@ -1,15 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Projet, ProjetStatus } from '../../app/entities/projets';
+import { ProjetAvecStatus } from '../entities/projets';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjetStatusService {
 
-   projetStatu: Projet [] =  ([
+   projetStatu: ProjetAvecStatus [] =  ([
     {
       nom: 'Auchan Supermarché Belley',
       status: ProjetStatus.COUVERT,
+      commentaire: '',
       description: 'lorem ipsum  This card has supporting text below as a natural lead-in to additional content.  ',
       equipe: 'Membre Equipe OFM',
       date: '19/02/2010',
@@ -18,6 +20,7 @@ export class ProjetStatusService {
     {
       nom: 'Saint Quentin',
       status: ProjetStatus.SOLEIL,
+      commentaire: '',
       description: 'lorem ipsum  This card has supporting text below as a natural lead-in to additional content. Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
       equipe: 'Membre Equipe Run-export',
       date: '19/02/2010',
@@ -25,6 +28,7 @@ export class ProjetStatusService {
     {
       nom: 'Auchan Montluçon Domérat',
       status: ProjetStatus.NUAGE,
+      commentaire: '',
       description: 'lorem ipsum  This card has supporting text below as a natural lead-in to additional content. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus earum perferendis vel deserunt minima neque culpa blanditiis dolore inventore tenetur lorem ipsum  This card has supporting text below as a natural lead-in to additional content. tenetur Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus earum perferendis vel deserunt minima neque culpa blanditiis dolore inventore tenetur lorem ipsum  This card has supporting text below as a natural lead-in to additional content. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus earum perferendis vel deserunt minima neque culpa blanditiis dolore inventore tenetur lorem ipsum  This card has supporting text below as a natural lead-in to additional content. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus earum perferendis vel deserunt minima neque culpa blanditiis dolore inventore Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus earum perferendis vel deserunt minima neque culpa blanditiis dolore inventore tenetur lorem ipsum  This card has supporting text below as a natural lead-in to additional content. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus earum perferendis vel deserunt minima neque culpa blanditiis dolore inventore tenetur lorem ipsum  This card has supporting text below as a natural lead-in to additional content. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus earum perferendis vel deserunt minima neque culpa blanditiis dolore inventore ',
       equipe: 'Membre Equipe Equipe ranchise',
       date: '19/02/2010',
@@ -32,6 +36,7 @@ export class ProjetStatusService {
     {
       nom: 'Gap',
       status: ProjetStatus.ORAGE,
+      commentaire: '',
       description: 'lorem ipsum  This card has supporting text below as a natural lead-in to additional content. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus earum perferendis vel deserunt minima neque culpa blanditiis dolore inventore tenetur lorem ipsum  This card has supporting text below as a natural lead-in to additional content. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus earum perferendis vel deserunt minima neque culpa blanditiis dolore inventore tenetur',
       equipe:'Membre Equipe Projet',
       date: '19/02/2010',
@@ -39,6 +44,7 @@ export class ProjetStatusService {
       {
       nom: 'SUPERMARCHE MARSEILLE MAZARGUES',
       status: ProjetStatus.SOLEIL,
+      commentaire: '',
       description: 'lorem ipsum  This card has supporting text below as a natural lead-in to additional content. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus earum perferendis vel deserunt minima neque culpa blanditiis dolore inventore tenetur lorem ipsum  This card has supporting text below as a natural lead-in to additional content. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus earum perferendis vel deserunt minima neque culpa blanditiis dolore inventore tenetur lorem ipsum  This card has supporting text below as a natural lead-in to additional content. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus earum perferendis vel deserunt minima neque culpa blanditiis dolore inventore tenetur lorem ipsum  This card has supporting text below as a natural lead-in to additional content. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus earum perferendis vel deserunt minima neque culpa blanditiis dolore inventore tenetur Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus earum perferendis vel deserunt minima neque culpa blanditiis dolore inventore tenetur lorem ipsum  This card has supporting text below as a natural lead-in to additional content. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus earum perferendis vel deserunt minima neque culpa blanditiis dolore inventore tenetur lorem ipsum  This card has supporting text below as a natural lead-in to additional content. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus earum perferendis vel deserunt minima neque culpa blanditiis dolore inventore ',
       equipe: 'Membre Equipe OFM',
       date: '19/02/2010',
@@ -47,6 +53,7 @@ export class ProjetStatusService {
     {
       nom: ' Supermarché Bourges ',
       status: ProjetStatus.ORAGE,
+      commentaire: '',
       description: 'lorem ipsum  This card has supporting text below as a natural lead-in to additional content. Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
       equipe: 'Membre Equipe Run-export',
       date: '19/02/2010',
@@ -54,6 +61,7 @@ export class ProjetStatusService {
     {
       nom: 'Auchan V2',
       status: ProjetStatus.COUVERT,
+      commentaire: '',
       description: 'lorem ipsum  This card has supporting text below as a natural lead-in to additional content. Lorem ipsum dolor sit amet, consectetur adipisicing elit.  ',
       equipe: 'Membre Equipe Franchise',
       date: '19/02/2010',
@@ -61,6 +69,7 @@ export class ProjetStatusService {
     {
       nom: 'Auchan FACHES THUMESNIL',
       status: ProjetStatus.SOLEIL,
+      commentaire: '',
       description: 'lorem ipsum  This card has supporting text below as a natural lead-in to additional content. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus earum perferendis vel deserunt minima neque culpa blanditiis dolore inventore tenetur lorem ipsum  This card has supporting text below as a natural lead-in to additional content. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus earum perferendis vel deserunt minima neque culpa blanditiis dolore inventore tenetur',
       equipe: 'Membre Equipe Projet',
       date: '19/02/2010',
@@ -68,6 +77,7 @@ export class ProjetStatusService {
     {
       nom: 'LEERS',
       status: ProjetStatus.COUVERT,
+      commentaire: '',
       description: 'lorem ipsum  This card has supporting text below as a natural lead-in to additional content. Lorem ipsum dolor sit amet, consectetur adipisicing elit.  ',
       equipe: 'Membre Equipe Franchise',
       date: '19/02/2010',
@@ -75,6 +85,7 @@ export class ProjetStatusService {
     {
       nom: 'Auchan Drive',
       status: ProjetStatus.SOLEIL,
+      commentaire: '',
       description: 'lorem ipsum  This card has supporting text below as a natural lead-in to additional content. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus earum perferendis vel deserunt minima neque culpa blanditiis dolore inventore tenetur lorem ipsum  This card has supporting text below as a natural lead-in to additional content. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus earum perferendis vel deserunt minima neque culpa blanditiis dolore inventore tenetur',
       equipe: 'Membre Equipe Projet',
       date: '19/02/2010',
@@ -88,13 +99,13 @@ constructor() {
 
 }
 
-getProjet(): Projet[] {
+getProjet(): ProjetAvecStatus[] {
   return this.projetStatu;
 }
 
-rechercheProjet(termino: string): Projet[] {
+rechercheProjet(termino: string): ProjetAvecStatus[] {
 
-  let projetArr: Projet[] = [];
+  let projetArr: ProjetAvecStatus[] = [];
   termino = termino.toLocaleLowerCase();
 
   for ( let i = 0; i < this.projetStatu.length; i ++ ) {

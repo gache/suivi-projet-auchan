@@ -6,9 +6,13 @@ export enum ProjetStatus {
   SOLEIL = 3
 }
 
+export interface ProjetAvecStatus extends Projet {
+  status: ProjetStatus;
+  commentaire: string;
+  date: string;
+}
 export interface Projet {
   nom: string;
-  status: ProjetStatus;
   description: string;
   equipe: string;
   date: string;
