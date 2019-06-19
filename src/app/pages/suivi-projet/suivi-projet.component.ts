@@ -11,7 +11,8 @@ import { Router } from '@angular/router';
 })
 
 export class SuiviProjetComponent implements OnInit {
-  // suiviProjet: any = {};
+
+  suiviProjet: any = {};
   // suivi: string;
 
 
@@ -27,6 +28,8 @@ export class SuiviProjetComponent implements OnInit {
                }
 
   ngOnInit() {
+    this.suiviProjet = this.projetStatusService.getProjet();
+    console.log(this.suiviProjet);
   }
  
 }

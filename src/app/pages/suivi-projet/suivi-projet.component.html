@@ -1,3 +1,26 @@
-<p>
-  suivi-projet works!
-</p>
+<div class="suivi">
+  <h2 class="text-center  encabezado" style="color: #E30613;">
+      <small class=" text-uppercase d-block animated fadeIn fast"> Suivi de Projets </small>
+  </h2>
+<hr>
+
+
+<div class="col-md-3 mb-4 py-3">
+    <div class="card" *ngFor= "let suivi of suiviProjet" >
+        <div class="statusIcon animated rotateIn">
+            <i *ngIf="suivi.status == 0" class="fas fa-poo-storm fa-5x"></i>
+            <i *ngIf="suivi.status == 1" class="fas fa-cloud fa-5x"></i>
+            <i *ngIf="suivi.status == 2" class="fas fa-cloud-sun fa-5x"></i>
+            <i *ngIf="suivi.status == 3" class="fas fa-sun fa-5x"></i>
+        </div>
+
+        <div class="card-body">
+          <h5 class="card-title"> {{ suivi.nom }} </h5>
+      <p class="card-text"> {{ suivi.commentaire }} </p>
+          <p class="card-text"> {{ suivi.equipe }} </p>
+        </div>
+        <div class="card-footer" >
+          <small class="text-muted">Date de début et fin</small>
+        </div>
+      </div> <!-- Card-->
+</div> <!-- fin du col-->
