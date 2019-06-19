@@ -2,8 +2,12 @@
     <h2 class="text-center  encabezado" style="color: #E30613;">
         <small class=" text-uppercase d-block animated fadeIn fast"> Status et List de projets </small>
     </h2>
+ <!-- <a (click)="suiviProjet()" class="btn btn-outline-danger mt-4" style="border-color: #E30613;">
+      Suivi de projet</a> -->
 
-    <a (click)="suiviProjet()" class="btn btn-outline-danger mt-4" style="border-color: #E30613;"> Suivi de projet</a>
+
+     <a [routerLink]="['/suiviProjet/suivi']" class="btn btn-outline-danger mt-4" style="border-color: #E30613;"> Suivi de projet</a>
+
     
     <hr class="w-100">
     <div class="card-columns  ">

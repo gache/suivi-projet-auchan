@@ -130,4 +130,8 @@ getProjet_Individuel(idx: string) {
   return this.projetStatu[ idx ];
 }
 
+// suiviProjet(index: string) {
+//   return this.suiviProjet[index];
+// }
+
 }

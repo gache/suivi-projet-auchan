@@ -28,9 +28,9 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['projet-individuel', idx]);
   }
 
-  suiviProjet() {
-    // console.log(this.index);
-    this.router.navigate(['suiviProjet', this.suiviProjet]);
+//   suiviProjet(index: string) {
+//     // console.log(this.index);
+//     this.router.navigate(['suiviProjet', index]);
 
-}
+// }
 }
