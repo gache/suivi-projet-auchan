@@ -29,6 +29,7 @@
                             "node_modules/animate.css/animate.css",
                             "node_modules/leaflet/dist/leaflet.css",
                             "node_modules/leaflet-routing-machine/dist/leaflet-routing-machine.css"
+                            
                         ],
                         "scripts": [
                             "node_modules/jquery/dist/jquery.slim.min.js",

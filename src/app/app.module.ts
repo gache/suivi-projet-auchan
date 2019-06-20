@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AlertModule, ModalModule } from 'ngx-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 // importacion http
 import { HttpClientModule } from '@angular/common/http';
-
 
 
 
@@ -45,16 +47,20 @@ import { SuiviProjetComponent } from './pages/suivi-projet/suivi-projet.componen
     ProjetIndividuelComponent,
     RechercheProjetComponent,
     ProjetCardComponent,
-    SuiviProjetComponent
+    SuiviProjetComponent,
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     APPROUTING,
-    HttpClientModule
+    HttpClientModule,
+    AlertModule.forRoot(),
+    ModalModule.forRoot(),
+    NgbModule
   ],
   providers: [
-    ProjetStatusService
+    ProjetStatusService,
   ],
   bootstrap: [AppComponent]
 })
