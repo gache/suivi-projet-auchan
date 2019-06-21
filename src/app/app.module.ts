@@ -1,7 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+
+// Importation de ngx-bootstrap
 import { AlertModule, ModalModule } from 'ngx-bootstrap';
+
+
+//Importation de ng-bootstrap
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+
 
 // importacion http
 import { HttpClientModule } from '@angular/common/http';
@@ -15,7 +25,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { APPROUTING } from './app.auchan.routes';
 
 // Services
-
 import { ProjetStatusService  } from './services/projet-status.service';
 
 
@@ -33,6 +42,8 @@ import { ProjetIndividuelComponent } from './pages/projet-individuel/projet-indi
 import { RechercheProjetComponent } from './pages/recherche-projet/recherche-projet.component';
 import { ProjetCardComponent } from './components/projet-card/projet-card.component';
 import { SuiviProjetComponent } from './pages/suivi-projet/suivi-projet.component';
+import { FormulaireCardComponent } from './components/formulaire-card/formulaire-card.component';
+import { PopupModificationComponent } from './components/popup-modification/popup-modification.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +59,8 @@ import { SuiviProjetComponent } from './pages/suivi-projet/suivi-projet.componen
     RechercheProjetComponent,
     ProjetCardComponent,
     SuiviProjetComponent,
+    FormulaireCardComponent,
+    PopupModificationComponent,
 
   ],
   imports: [
@@ -57,7 +70,10 @@ import { SuiviProjetComponent } from './pages/suivi-projet/suivi-projet.componen
     HttpClientModule,
     AlertModule.forRoot(),
     ModalModule.forRoot(),
-    NgbModule
+    BrowserAnimationsModule,
+    NgbModule,
+    CommonModule,
+    FormsModule
   ],
   providers: [
     ProjetStatusService,

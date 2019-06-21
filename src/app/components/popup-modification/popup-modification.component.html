@@ -1,0 +1,36 @@
+ <!-- Pop-up -->
+ <ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title text-center" id="modal-basic-title"> Modification Projet</h4>
+    <button type="button" class="close btn btn-outline-danger" style="color: #E30613;"  aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <!-- Contenu du pop-up -->
+  <div class="modal-body">
+
+    <div class="form-group row">
+      <label class="col-3" for="statuProjet" style="color: #E30613;">Equipe</label>
+      <select class="form-control col-6" id="statuProjet">
+        <option> __ </option>
+        <option>OFEBAM</option>
+        <option>Projet</option>
+        <option>Run-Export</option>
+        <option>Franchise</option>
+      </select>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-3" for="description1" style="color: #E30613;"> Commentaire </label>
+      <textarea class="form-control col-6" id="description1" rows="5"></textarea>
+    </div>
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-danger" style="color: #E30613;" (click)="c('Save click')">Enregistrer</button>
+  </div>
+</ng-template>
+
+<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Modification Projet</button>
+
+<br>

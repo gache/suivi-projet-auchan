@@ -2,9 +2,24 @@
   <h2 class="text-center  encabezado" style="color: #E30613;">
     <small class=" text-uppercase d-block animated fadeIn fast"> Suivi de Projets </small>
   </h2>
+
+  <!-- Calendrier -->
+
+  <form class="form-inline">
+    <div class="form-group">
+      <div class="input-group">
+        <input class="form-control" placeholder="Date" name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+        <div class="input-group-append">
+          <button class="btn btn-outline-danger calendar" (click)="d.toggle()" type="button">
+            <i class="far fa-calendar-alt fa-1x"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
   <hr>
 
-
+  <!-- Creation des cards -->
   <div class=" card-columns mb-1 py-3">
     <div class="card animated fadeIn fast" *ngFor="let suivi of suiviProjet">
       <div class="statusIcon animated rotateIn">
@@ -19,81 +34,18 @@
         <p class="card-text text-justify"> {{ suivi.commentaire }} </p>
         <p class="card-text"> {{ suivi.equipe }} </p>
       </div>
-      <ng-template #content let-c="close" let-d="dismiss">
-        <div class="modal-header">
-          <h4 class="modal-title text-center" id="modal-basic-title"> Modification Projet</h4>
-          <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-    
-          <div class="form-group row">
-            <label class="col-3" for="statuProjet" style="color: #E30613;">Equipe</label>
-            <select class="form-control col-6" id="statuProjet">
-              <option> __ </option>
-              <option>OFEBAM</option>
-              <option>Projet</option>
-              <option>Run-Export</option>
-              <option>Franchise</option>
-            </select>
-          </div>
-    
-          <div class="form-group row">
-            <label class="col-3" for="description1" style="color: #E30613;"> Commentaire </label>
-            <textarea class="form-control col-6" id="description1" rows="5"></textarea>
-          </div>
 
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Enregistrer</button>
-        </div>
-      </ng-template>
+      <!-- Modal -->
+
+      <app-popup-modification> </app-popup-modification>
       
-      <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Modification Projet</button>
-
+      <!-- Fin du modal -->
       <div class="card-footer">
         <small class="text-muted text-center"> {{ suivi.date }} </small>
       </div>
     </div> <!-- Card-->
-  </div> <!-- fin du col-->
+  </div> <!-- card-columns-->
 
   <br>
 
-  <div class="suivi">
-    <h2 class="text-center  encabezado" style="color: #E30613;">
-      <small class=" text-uppercase d-block animated fadeIn fast"> Ajouter un Projet </small>
-    </h2>
-  </div>
-  <hr>
-  <form class=" py-5">
-
-    <div>
-      <div class="form-group row">
-        <label class="col-2" for="formGroupExampleInput" style="color: #E30613;">Nom Projet</label>
-        <input type="text" class="form-control col-2" id="formGroupExampleInput" placeholder="Example input">
-      </div>
-
-      <div class="form-group row">
-        <label class="col-2" for="statuProjet" style="color: #E30613;">Equipe</label>
-        <select class="form-control col-2" id="statuProjet">
-          <option> __ </option>
-          <option>OFEBAM</option>
-          <option>Projet</option>
-          <option>Run-Export</option>
-          <option>Franchise</option>
-        </select>
-      </div>
-
-      <div class="form-group row">
-        <label class="col-2" for="description1" style="color: #E30613;">Despcription Projet</label>
-        <textarea class="form-control col-5" id="description1" rows="5"></textarea>
-      </div>
-
-      <label class="col-1 col-form-label ">&nbsp;</label>
-      <div class="input-group col-6">
-        <button type="submit" class="btn btn-outline-danger">
-          Ajouter un Projet
-        </button>
-      </div>
-    </div>
+  <app-formulaire-card> </app-formulaire-card>
