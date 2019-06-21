@@ -6,17 +6,23 @@
   </h2>
 </div>
 <hr>
-<form class=" py-5">
+<form [formGroup]="formulaire1" (ngSubmit)="ajouter()"  class=" py-5">
 
   <div>
     <div class="form-group row">
       <label class="col-2" for="formGroupExampleInput" style="color: #E30613;">Nom Projet</label>
-      <input type="text" class="form-control col-2" id="formGroupExampleInput" placeholder="Example input">
+      <input type="text" 
+             class="form-control col-2" 
+             id="formGroupExampleInput" 
+             placeholder="Projet"
+             formControlName="nomProjet">
     </div>
 
     <div class="form-group row">
       <label class="col-2" for="statuProjet" style="color: #E30613;">Equipe</label>
-      <select class="form-control col-2" id="statuProjet">
+      <select class="form-control col-2" 
+              id="statuProjet"
+              formControlSelect="equipe">
         <option> __ </option>
         <option>OFEBAM</option>
         <option>Projet</option>
@@ -27,14 +33,19 @@
 
     <div class="form-group row">
       <label class="col-2" for="description1" style="color: #E30613;">Despcription Projet</label>
-      <textarea class="form-control col-5" id="description1" rows="5"></textarea>
+      <textarea class="form-control col-5" 
+                id="description1" 
+                rows="5"
+                contactForm="description"></textarea>
     </div>
 
     <label class="col-1 col-form-label ">&nbsp;</label>
     <div class="input-group col-6">
       <button type="submit" class="btn btn-outline-danger">
-        Ajouter un Projet
+        Ajouter
       </button>
     </div>
   </div>
   </form>
+
+  {{formulaire1.valid}}

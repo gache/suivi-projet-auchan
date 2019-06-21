@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+
+
 
 @Component({
   selector: 'app-formulaire-card',
@@ -7,9 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormulaireCardComponent implements OnInit {
 
-  constructor() { }
+  // @Output() formulaire: EventEmitter<any>
+
+  formulaire1: FormGroup;
+  constructor() {
+    // this.formulaire = new EventEmitter();
+    this.formulaire1 = new FormGroup({
+
+      'nomProjet'  : new FormControl('', Validators.required ),
+      'equipe'     : new FormControl('', Validators.required ),
+      'description': new FormControl('', Validators.required )
+    });
+   }
 
   ngOnInit() {
+  }
+
+  ajouter() {
+    console.log(this.formulaire1.value);
+
   }
 
 }

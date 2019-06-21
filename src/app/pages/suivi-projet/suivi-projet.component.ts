@@ -1,7 +1,5 @@
-import { Component, TemplateRef, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { ProjetStatusService } from '../../services/projet-status.service';
-import { Router } from '@angular/router';
 import {NgbDateStruct, NgbCalendar} from '@ng-bootstrap/ng-bootstrap';
 @Component({
   selector: 'app-suivi-projet',
