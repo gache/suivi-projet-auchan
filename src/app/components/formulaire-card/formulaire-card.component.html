@@ -5,43 +5,68 @@
         <small class=" text-uppercase d-block animated fadeIn fast"> Ajouter un Projet </small>
     </h2>
 </div>
+
 <hr>
+
 <form [formGroup]="formulaire1" (ngSubmit)="ajouter(formulaire1.value)" class=" py-5">
 
     <div>
         <div class="form-group row">
+
             <label class="col-2" for="formGroupExampleInput" style="color: #E30613;">Nom Projet</label>
-            <input type="text" class="form-control col-2" id="formGroupExampleInput" placeholder="Projet" formControlName="nomProjet">
-            <div class="alert" *ngIf="!formulaire1.controls['nomProjet'].valid && formulaire1.controls['nomProjet'].touched">
-                {{ messageAlert }} </div>
+
+            <input type="text" 
+                   class="form-control col-6" 
+                   id="formGroupExampleInput"
+                   placeholder="Projet" 
+                   formControlName="nomProjet">
         </div>
+
+            <!-- Message si ne respecte si l'utilisateur  ne respecte pas la condition  -->
+            <div class="alert form-control-feedback" 
+                 *ngIf="!formulaire1.controls['nomProjet'].valid && formulaire1.controls['nomProjet'].touched">
+                {{ messageAlert }} </div>
+       
 
         <div class="form-group row">
 
             <label class="col-2" for="statuProjet" style="color: #E30613;">Equipe</label>
-            <select class="form-control col-2" id="statuProjet" formControlName="equipe">
+            <select class="form-control col-6" 
+                    id="statuProjet" 
+                    formControlName="equipe">
+                    <option>   __       </option>
+                    <option>   OFEBAM   </option>
+                    <option>   Projet   </option>
+                    <option> Run-Export </option>
+                    <option> Franchise  </option>
 
-        <option> __ </option>
-        <option>OFEBAM</option>
-        <option>Projet</option>
-        <option>Run-Export</option>
-        <option>Franchise</option>
-      </select>
+            </select>
         </div>
+        <!-- Message pour que l'utilisateur puisse choisir un groupe -->
+        <div class="alert"
+             *ngIf="!formulaire1.controls['equipe'].valid && formulaire1.controls['equipe'].touched"> Choisir un Equipe </div>
 
-        <!-- Message pour afficher le minimun de caractere à taper -->
-        <div class="alert" *ngIf="!formulaire1.controls['description'].valid && formulaire1.controls['description'].touched"> Minimun 5 caracteres </div>
-
+        
         <div class="form-group row">
             <label class="col-2" for="description1" style="color: #E30613;">Despcription Projet</label>
-            <textarea class="form-control col-5" id="description1" rows="5" formControlName="description"></textarea>
+
+            <textarea class="form-control col-6"
+                      id="description1" 
+                      rows="5" 
+                      formControlName="description">
+            </textarea>
         </div>
+        <!-- Message pour afficher le minimun de caractere à taper -->
+        <div class="alert" 
+            *ngIf="!formulaire1.controls['description'].valid && formulaire1.controls['description'].touched"> Minimun 5 caracteres </div>
 
         <label class="col-1 col-form-label ">&nbsp;</label>
         <div class="input-group col-6">
-            <button type="submit" class="btn btn-danger" [disabled]="!formulaire1.valid">
-        Ajouter
-      </button>
+            <button type="submit" 
+                    class="btn btn-danger"
+                    [disabled]="!formulaire1.valid">
+                    Ajouter
+            </button>
         </div>
     </div>
 </form>

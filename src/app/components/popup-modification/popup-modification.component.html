@@ -1,4 +1,6 @@
  <!-- Pop-up -->
+ <form [formGroup]="modification1" (ngSubmit)="enregistrer(modification1.value)" class=" py-5">
+
  <ng-template #content let-c="close" let-d="dismiss">
   <div class="modal-header">
     <h4 class="modal-title text-center" id="modal-basic-title"> Modification Projet</h4>
@@ -7,30 +9,44 @@
     </button>
   </div>
   <!-- Contenu du pop-up -->
+
   <div class="modal-body">
 
     <div class="form-group row">
-      <label class="col-3" for="statuProjet" style="color: #E30613;">Equipe</label>
-      <select class="form-control col-6" id="statuProjet">
+      <label class="col-3" for="statu1" style="color: #E30613;">Status</label>
+      <select class="form-control col-6" 
+              id="statu1"
+              formControlName="status">
         <option> __ </option>
-        <option>OFEBAM</option>
-        <option>Projet</option>
-        <option>Run-Export</option>
-        <option>Franchise</option>
+        <option> Soleil </option>
+        <option> Couvert </option>
+        <option> Nuage </option>
+        <option> Orage</option>
       </select>
     </div>
 
     <div class="form-group row">
-      <label class="col-3" for="description1" style="color: #E30613;"> Commentaire </label>
-      <textarea class="form-control col-6" id="description1" rows="5"></textarea>
+      <label class="col-3" for="commentaire1" style="color: #E30613;"> Commentaire </label>
+      <textarea class="form-control col-6" 
+                id="commentaire1" 
+                formControlName="commentaire"
+                rows="5"></textarea>
     </div>
 
   </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline-danger" style="color: #E30613;" (click)="c('enregistrer')">Enregistrer</button>
-  </div>
-</ng-template>
+  
+  <div class="modal-footer form-footer">
+    <button type="submit" 
+            class="btn btn btn-danger" 
+            [disabled]="!modification1.valid">Enregistrer</button>
+            {{ modification1.valid  }}
+          </div>
+        </ng-template>
+      </form>
+      
+      <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Modification Projet</button>
+      
+      <br>
 
-<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Modification Projet</button>
 
-<br>
+<!-- style="color: #E30613;"  -->

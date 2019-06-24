@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 
@@ -11,24 +11,34 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class FormulaireCardComponent implements OnInit {
 
   // @Output() formulaire: EventEmitter<any>
+  @Input() formulaire: any = {};
 
   formulaire1  : FormGroup;
   description  : string;
   Ajouter      : any;
   nomProjet    : string;
-  messageAlert : string = "Definir le Porjet";
+  messageAlert : string = "Le Nom du projet est nécessaire";
 
 constructor() {
     // this.formulaire = new EventEmitter();
   this.formulaire1 = new FormGroup({
 
-      'nomProjet'   : new FormControl(null, [Validators.required, Validators.minLength(3)] ),
+      'nomProjet'   : new FormControl(null, [
+
+                                             Validators.required,
+                                             Validators.minLength(5)] ),
+
       'equipe'      : new FormControl(null, Validators.required ),
       'description' : new FormControl(null,
                                       Validators.compose
-                                      ([Validators.required,
+
+                                      ([
+
+                                        Validators.required,
                                         Validators.minLength(5),
-                                        Validators.maxLength(500)]) )
+                                        Validators.maxLength(200)
+
+                                      ]))
     });
    }
 
