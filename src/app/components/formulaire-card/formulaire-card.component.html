@@ -25,22 +25,22 @@
             <!-- Message si ne respecte si l'utilisateur  ne respecte pas la condition  -->
             <div class="alert form-control-feedback" 
                  *ngIf="!formulaire1.controls['nomProjet'].valid && formulaire1.controls['nomProjet'].touched">
-                {{ messageAlert }} </div>
+                {{ messageAlert }}
+             </div>
 
         <div class="form-group row">
-
-                <label class="col-2" for="nomProjet1" style="color: #E30613;">Date</label>
-        
+            <label class="col-2" for="nomProjet1" style="color: #E30613;">Date</label>
                 <input type="date" 
-                        class="form-control col-6" 
-                        id="nomProjet1"
-                        placeholder="Date" 
-                        formControlName="date">
+                       class="form-control col-6" 
+                       id="nomProjet1"
+                       placeholder="Date" 
+                       formControlName="date">
         </div>
 
         <div class="alert form-control-feedback" 
         *ngIf="!formulaire1.controls['date'].valid && formulaire1.controls['date'].touched">
-     La date est obligatoire </div>
+             La date est obligatoire 
+        </div>
        
 
         <div class="form-group row">

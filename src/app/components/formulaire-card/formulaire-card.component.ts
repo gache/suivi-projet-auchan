@@ -25,12 +25,10 @@ constructor() {
   this.formulaire1 = new FormGroup({
 
       'nomProjet'   : new FormControl(null, [
-
                                              Validators.required,
                                              Validators.minLength(5)],
                                              this.existeProjet
                                              ),
- 
       'date'        : new FormControl(null, Validators.required ),
       'equipe'      : new FormControl(null, Validators.required ),
       'description' : new FormControl(null,

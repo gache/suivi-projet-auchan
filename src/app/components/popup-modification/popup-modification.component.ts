@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Projet } from '../../entities/projets';
 
 @Component({
   selector: 'app-popup-modification',
@@ -10,17 +11,18 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class PopupModificationComponent implements OnInit {
 
-
+  @Input() projet:Projet;
+  @Output() change = new EventEmitter();
 // Modal 
 
-  modalRef: BsModalRef | null;
-  modalRef2: BsModalRef;
+  // modalRef: BsModalRef | null;
+  // modalRef2: BsModalRef;
 
   // parametre de la validation
 
   modification1 : FormGroup;
   commentaire   : string;
-  Enregistrer   : any;
+  Enregistrer   : string;
 
   constructor(config: NgbModalConfig, private modalService: NgbModal) { 
     config.backdrop = 'static';
@@ -46,9 +48,15 @@ export class PopupModificationComponent implements OnInit {
     this.modalService.open(content);
   }
 
-  enregistrer(Enregistrer) {
-    // console.log(this.modification1.value);
-    this.commentaire =  Enregistrer.commentaire;
+  enregistrer() {
+    console.log(this.modification1.value);
+    console.log('ici on emet');
+    this.commentaire = this.modification1.value.commentaire;
+    this.change.emit({
+      status: this.modification1.value.status,
+      commentaire: this.modification1.value.commentaire,
+      date: this.modification1.value.date
+    });
 
   }
 

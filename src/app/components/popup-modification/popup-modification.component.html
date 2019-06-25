@@ -49,7 +49,7 @@
   <div class="modal-footer form-footer">
     <button type="submit" 
             class="btn btn btn-danger" 
-            [disabled]="!modification1.valid">Enregistrer</button>
+            (click)="enregistrer()">Enregistrer</button>
             {{ modification1.valid  }}
           </div>
         </ng-template>

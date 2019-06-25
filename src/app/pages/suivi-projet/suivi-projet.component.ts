@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjetStatusService } from '../../services/projet-status.service';
 import {NgbDateStruct, NgbCalendar} from '@ng-bootstrap/ng-bootstrap';
+import { Projet } from 'src/app/entities/projets';
 
 
 
@@ -33,4 +34,10 @@ export class SuiviProjetComponent implements OnInit {
               // selectToday() {
               //   this.model = this.calendar.getToday();
               // }
+
+              setStatus(project:Projet, newStatus:{status:string,commentaire:string,date:string}) {
+                // Appel au service de modification de status
+                console.log('ici on recoit l emission');
+                this.projetStatusService.setProjectStatus(project,newStatus.status,newStatus.commentaire,newStatus.date);
+              }
 }
