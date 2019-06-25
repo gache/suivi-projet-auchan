@@ -27,13 +27,17 @@ export class PopupModificationComponent implements OnInit {
     config.keyboard = false;
 
     this.modification1 = new FormGroup({
+
       'status'      : new FormControl(null, Validators.required),
-      'commentaire' : new FormControl(null, Validators.compose([
+      'date'        : new FormControl(null, Validators.required ),
+      'commentaire' : new FormControl(null, Validators.compose
+                                        ([
                                             Validators.required,
                                             Validators.minLength(10),
-                                            Validators.maxLength(200)]))
+                                            Validators.maxLength(200)
+                                          ]))
 
-    })
+    });
   }
 
   ngOnInit() {

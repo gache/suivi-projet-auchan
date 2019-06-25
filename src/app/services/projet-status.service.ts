@@ -94,9 +94,7 @@ export class ProjetStatusService {
   ]);
 
 constructor() {
-
-      console.log('Servicio Listo');
-
+  console.log('Service prêt');
 }
 
 getProjet(): ProjetAvecStatus[] {

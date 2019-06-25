@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { promise } from 'protractor';
@@ -14,9 +14,6 @@ import { reject } from 'q';
 })
 export class FormulaireCardComponent implements OnInit {
 
-  // @Output() formulaire: EventEmitter<any>
-  @Input() formulaire: any = {};
-
   formulaire1  : FormGroup;
   description  : string;
   Ajouter      : any;
@@ -24,7 +21,7 @@ export class FormulaireCardComponent implements OnInit {
   messageAlert : string = "Le Nom du projet est nécessaire";
 
 constructor() {
-    // this.formulaire = new EventEmitter();
+  
   this.formulaire1 = new FormGroup({
 
       'nomProjet'   : new FormControl(null, [
@@ -34,7 +31,7 @@ constructor() {
                                              this.existeProjet
                                              ),
  
-
+      'date'        : new FormControl(null, Validators.required ),
       'equipe'      : new FormControl(null, Validators.required ),
       'description' : new FormControl(null,
                                       Validators.compose
@@ -48,7 +45,7 @@ constructor() {
                                       ]))
     });
 
-
+// observable pour la detection de changement sur le sur l'input nomProjet
         this.formulaire1.controls['nomProjet'].valueChanges
             .subscribe(data=>{
                 console.log(data);
@@ -71,23 +68,23 @@ constructor() {
       this.nomProjet   = Ajouter.nomProjet;
 
   }
-
+// Validation async 
  existeProjet( control: FormControl ): Promise<any> | Observable<any> {
 
   let promise = new Promise(
     (resolve, reject)=> {
       setTimeout( () => {
         if (control.value === "projet") {
-          resolve({projetExiste:true})
+          resolve( { projetExiste: true } )
         }else{
           resolve(null)
         }
       }, 3000)
     }
-  )
-
+  );
     return promise;
-
  }
+
+
 }
 
