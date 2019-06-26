@@ -1,9 +1,7 @@
-import { Component, OnInit, } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { promise } from 'protractor';
-import { resolve } from 'url';
-import { reject } from 'q';
+
 
 
 
@@ -13,6 +11,8 @@ import { reject } from 'q';
   styleUrls: ['./formulaire-card.component.css']
 })
 export class FormulaireCardComponent implements OnInit {
+
+  @Output() ajoutChangement = new EventEmitter();
 
   formulaire1  : FormGroup;
   description  : string;
@@ -62,9 +62,15 @@ constructor() {
 
     console.log(this.formulaire1.value);
     console.log(this.formulaire1);
-      this.description = Ajouter.description;
-      this.nomProjet   = Ajouter.nomProjet;
-
+    console.log('ici on emet');
+  
+      this.description = this.formulaire1.value.description;
+      this.ajoutChangement.emit({
+        nomProjet: this.formulaire1.value.nomProjet,
+        date: this.formulaire1.value.date,
+        equipe: this.formulaire1.value.equipe,
+        description: this.formulaire1.value.description
+      })
   }
 // Validation async 
  existeProjet( control: FormControl ): Promise<any> | Observable<any> {

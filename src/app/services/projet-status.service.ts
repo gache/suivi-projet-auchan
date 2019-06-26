@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ProjetStatus } from '../../app/entities/projets';
 import { ProjetAvecStatus, Projet } from '../entities/projets';
-import { of } from 'rxjs';
+import { of, observable } from 'rxjs';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -130,11 +130,30 @@ getProjet_Individuel(idx: string) {
   return this.projetStatu[ idx ];
 }
 
-setProjectStatus(project:Projet, status:string, commentaire:string, date:string):Observable<ProjetAvecStatus> {
+setProjectStatus(project     : Projet,
+                 status      : string,
+                 commentaire : string,
+                 date        : string): Observable<ProjetAvecStatus> {
+
   console.log("Ca marche");
   // @ts-ignore
   return of({});
 }
+
+setAjouterProjet(ajouter     : Projet,
+                 nomProjet   : string,
+                 date        : string,
+                 equipe      : string,
+                 description : string ): Observable<ProjetAvecStatus> {
+
+                  console.log("Ca marche");
+                  // @ts-ignore
+                  return of({});
+
+}
+
+
+
 
 // suiviProjet(index: string) {
 //   return this.suiviProjet[index];

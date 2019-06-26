@@ -35,9 +35,20 @@ export class SuiviProjetComponent implements OnInit {
               //   this.model = this.calendar.getToday();
               // }
 
-              setStatus(project:Projet, newStatus:{status:string,commentaire:string,date:string}) {
+              setStatus(project: Projet, newStatus:{status: string,commentaire: string,date: string}) {
                 // Appel au service de modification de status
                 console.log('ici on recoit l emission');
                 this.projetStatusService.setProjectStatus(project,newStatus.status,newStatus.commentaire,newStatus.date);
               }
+
+              setAjouter(ajouter: Projet, newAjout:{ nomProjet: string, date: string, equipe: string, description: string }) {
+                // Appel au service de modification de status
+                console.log('ici on recoit l emission');
+                this.projetStatusService.setAjouterProjet(ajouter,newAjout.nomProjet, newAjout.date,newAjout.equipe, newAjout.description)
+
+              }
+
+
+
+
 }

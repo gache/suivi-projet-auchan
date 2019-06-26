@@ -13,10 +13,10 @@ export class PopupModificationComponent implements OnInit {
 
   @Input() projet:Projet;
   @Output() change = new EventEmitter();
-// Modal 
 
-  // modalRef: BsModalRef | null;
-  // modalRef2: BsModalRef;
+// Modal 
+  modalRef: BsModalRef | null;
+  modalRef2: BsModalRef;
 
   // parametre de la validation
 
