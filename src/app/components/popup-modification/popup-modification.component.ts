@@ -3,7 +3,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Projet } from '../../entities/projets';
-import moment from 'moment';
+import * as moment from 'moment'; // Importation de la librerie pour la date
 
 @Component({
   selector: 'app-popup-modification',
@@ -12,11 +12,11 @@ import moment from 'moment';
 })
 export class PopupModificationComponent implements OnInit {
 
-  @Input() projet:Projet;
+  @Input () projet: Projet;
   @Output() change = new EventEmitter();
 
 // Modal 
-  modalRef: BsModalRef | null;
+  modalRef : BsModalRef | null;
   modalRef2: BsModalRef;
 
   // parametre de la validation
@@ -25,21 +25,20 @@ export class PopupModificationComponent implements OnInit {
   commentaire   : string;
   Enregistrer   : string;
 
-  constructor(config: NgbModalConfig, private modalService: NgbModal) { 
-    config.backdrop = 'static';
-    config.keyboard = false;
+constructor(config: NgbModalConfig, private modalService: NgbModal) { 
+  config.backdrop = 'static';
+  config.keyboard = false;
 
-    this.modification1 = new FormGroup({
+  this.modification1 = new FormGroup({
 
-      'status'      : new FormControl(null, Validators.required),
-      'date'        : new FormControl(null, Validators.required ),
-      'commentaire' : new FormControl(null, Validators.compose
+    'status'      : new FormControl(null, Validators.required),
+    'date'        : new FormControl(null, Validators.required ),
+    'commentaire' : new FormControl(null, Validators.compose
                                         ([
                                             Validators.required,
-                                            Validators.minLength(10),
+                                            Validators.minLength(3),
                                             Validators.maxLength(200)
                                           ]))
-
     });
   }
 
@@ -50,13 +49,18 @@ export class PopupModificationComponent implements OnInit {
   }
 
   enregistrer() {
-    console.log(this.modification1.value);
-    console.log('ici on emet');
+
+  console.log(this.modification1.value);
+  console.log('ici on emet');
+
     this.commentaire = this.modification1.value.commentaire;
+
     this.change.emit({
-      status: this.modification1.value.status,
-      commentaire: this.modification1.value.commentaire,
-      date: moment(this.modification1.value.date).format("YYYYMMDD")
+
+      status      : this.modification1.value.status,
+      commentaire : this.modification1.value.commentaire,
+      date        : moment(this.modification1.value.date).format("YYYYMMDD")
+
     });
 
   }

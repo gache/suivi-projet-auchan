@@ -9,14 +9,16 @@ import { ProjetStatusService} from '../../services/projet-status.service';
 })
 export class ProjetIndividuelComponent implements OnInit {
 
-  projetI: any = {};
+  projetI: any = [];
 
   constructor( private activatedRoute: ActivatedRoute,
                private projetStatusService: ProjetStatusService) {
 
       this.activatedRoute.params.subscribe( param => {
             // console.log( param ['id'] );
-            this.projetI = this.projetStatusService.getProjet_Individuel( param ['id'] );
+            this.projetI = this.projetStatusService.getProjet_Individuel( param ['id'] ).subscribe(
+              (data) => { this.projetI = data }
+            );
 });
 
 }

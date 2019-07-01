@@ -50,11 +50,11 @@ export class SuiviProjetComponent implements OnInit {
                                                           newStatus.commentaire,
                                                           newStatus.date).subscribe(data=>{
                                                             //this.suiviProjet.push(data);
-                                                          })
-                                                
+                                                          });
+
               }
 
-              setAjouter(newAjout:{ nomProjet   : string,
+              setAjouter(newAjout:{ nomProjet: string,
                                                      date        : string,
                                                      equipe      : string,
                                                      description : string }) {
@@ -65,11 +65,9 @@ export class SuiviProjetComponent implements OnInit {
                                                           newAjout.equipe,
                                                           newAjout.description).subscribe(
                                                             (data) => {
-                                                              this.suiviProjet.push(data);
-                                                            }
-                                                          )
-
-              }
+                                                              // this.suiviProjet.push(data);
+                                                            });
+                }
 
 
 
