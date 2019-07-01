@@ -3,6 +3,7 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Projet } from '../../entities/projets';
+import moment from 'moment';
 
 @Component({
   selector: 'app-popup-modification',
@@ -55,7 +56,7 @@ export class PopupModificationComponent implements OnInit {
     this.change.emit({
       status: this.modification1.value.status,
       commentaire: this.modification1.value.commentaire,
-      date: this.modification1.value.date
+      date: moment(this.modification1.value.date).format("YYYYMMDD")
     });
 
   }

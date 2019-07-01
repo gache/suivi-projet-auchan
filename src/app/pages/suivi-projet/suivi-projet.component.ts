@@ -15,7 +15,7 @@ import { Projet } from 'src/app/entities/projets';
 export class SuiviProjetComponent implements OnInit {
 
 
-  suiviProjet: any = {};
+  suiviProjet: any = [];
   // suivi: string;
 
   model: NgbDateStruct;
@@ -27,24 +27,47 @@ export class SuiviProjetComponent implements OnInit {
                 }
 
        ngOnInit() {
-              this.suiviProjet = this.projetStatusService.getProjet();
-              console.log(this.suiviProjet);
+              this.projetStatusService.getProjet().subscribe(
+                (data) => {
+                  this.suiviProjet = data;
+                  console.log("data");
+                  console.log(this.suiviProjet);
+                }
+              );
               }
 
               // selectToday() {
               //   this.model = this.calendar.getToday();
               // }
 
-              setStatus(project: Projet, newStatus:{status: string,commentaire: string,date: string}) {
+              setStatus(project: Projet, newStatus:{status      : string,
+                                                    commentaire : string,
+                                                    date        : string}) {
                 // Appel au service de modification de status
                 console.log('ici on recoit l emission');
-                this.projetStatusService.setProjectStatus(project,newStatus.status,newStatus.commentaire,newStatus.date);
+                this.projetStatusService.setProjectStatus(project,
+                                                          newStatus.status,
+                                                          newStatus.commentaire,
+                                                          newStatus.date).subscribe(data=>{
+                                                            //this.suiviProjet.push(data);
+                                                          })
+                                                
               }
 
-              setAjouter(ajouter: Projet, newAjout:{ nomProjet: string, date: string, equipe: string, description: string }) {
+              setAjouter(newAjout:{ nomProjet   : string,
+                                                     date        : string,
+                                                     equipe      : string,
+                                                     description : string }) {
                 // Appel au service de modification de status
                 console.log('ici on recoit l emission');
-                this.projetStatusService.setAjouterProjet(ajouter,newAjout.nomProjet, newAjout.date,newAjout.equipe, newAjout.description)
+                this.projetStatusService.setAjouterProjet(newAjout.nomProjet,
+                                                          newAjout.date,
+                                                          newAjout.equipe,
+                                                          newAjout.description).subscribe(
+                                                            (data) => {
+                                                              this.suiviProjet.push(data);
+                                                            }
+                                                          )
 
               }
 

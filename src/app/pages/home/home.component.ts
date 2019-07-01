@@ -16,8 +16,12 @@ export class HomeComponent implements OnInit {
 
   constructor(private projetStatusService: ProjetStatusService,
               private router: Router ) {
-    this.projets = this.projetStatusService.getProjet();
-    console.log(this.projets);
+    this.projetStatusService.getProjet().subscribe(
+      (data) => {
+        this.projets = data;
+        console.log(this.projets);
+      }
+    );
    }
 
   ngOnInit() {

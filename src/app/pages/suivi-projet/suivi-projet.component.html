@@ -29,16 +29,16 @@
         <i *ngIf="suivi.status == 3" class="fas fa-sun fa-5x"></i>
       </div>
 
-      <div class="card-body">
+        <div class="card-body">
         <h5 class="card-title"> {{ suivi.nom }} </h5>
         <p class="card-text text-justify"> {{ suivi.commentaire }} </p>
         <p class="card-text"> {{ suivi.equipe }} </p>
-      </div>
+        </div>
 
       <!-- Modal -->
 
       <app-popup-modification (change)="setStatus(suivi,$event)"> </app-popup-modification>
-      
+
       <!-- Fin du modal -->
       <div class="card-footer">
         <small class="text-muted text-center"> {{ suivi.date }} </small>
@@ -47,5 +47,5 @@
   </div> <!-- card-columns-->
 
   <br>
-
-  <app-formulaire-card (ajoutChangement)="setAjouter(suiviProjet,$event)" > </app-formulaire-card>
+  <!-- Formulaire  -->
+  <app-formulaire-card (ajoutChangement)="setAjouter($event)"> </app-formulaire-card>
