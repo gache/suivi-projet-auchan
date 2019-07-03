@@ -9,7 +9,7 @@ import { ProjetStatusService } from '../../services/projet-status.service';
 })
 export class ProjetCardComponent implements OnInit {
 
-  @Input() projet: any = {};
+  @Input() projet: any = [];
   @Input() index: number;
 
   constructor(private router: Router,
@@ -18,7 +18,7 @@ export class ProjetCardComponent implements OnInit {
   ngOnInit() {
     this.projetService.getProjet()
         .subscribe(data => {
-          console.log(data);
+          // console.log(data);
         });
   }
 

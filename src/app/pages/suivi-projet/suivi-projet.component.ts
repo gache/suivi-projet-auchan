@@ -16,7 +16,7 @@ export class SuiviProjetComponent implements OnInit {
 
 
   suiviProjet: any = [];
-  // suivi: string;
+
 
   model: NgbDateStruct;
   date: {day: number,  month: number, year: number };
@@ -30,7 +30,6 @@ export class SuiviProjetComponent implements OnInit {
               this.projetStatusService.getProjet().subscribe(
                 (data) => {
                   this.suiviProjet = data;
-                  console.log("data");
                   console.log(this.suiviProjet);
                 }
               );

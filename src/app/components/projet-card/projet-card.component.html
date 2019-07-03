@@ -1,20 +1,20 @@
 <div class="card  animated fadeIn fast" >
-    <!-- <img [src]="projet.icone" class="card-img-top img-fluid" alt="..."> -->
-    <!--  Autre forme de faire  -->
-    <div class="statusIcon animated rotateIn">
-        <i *ngIf="projet.status == 0" class="fas fa-poo-storm fa-5x"></i>
-        <i *ngIf="projet.status == 1" class="fas fa-cloud fa-5x"></i>
-        <i *ngIf="projet.status == 2" class="fas fa-cloud-sun fa-5x"></i>
-        <i *ngIf="projet.status == 3" class="fas fa-sun fa-5x"></i>
+        <!-- <img [src]="projet.icone" class="card-img-top img-fluid" alt="..."> -->
+        <!--  Autre forme de faire  -->
+        <div class="statusIcon animated rotateIn">
+            <i *ngIf="projet.status == 0" class="fas fa-poo-storm fa-5x"></i>
+            <i *ngIf="projet.status == 1" class="fas fa-cloud fa-5x"></i>
+            <i *ngIf="projet.status == 2" class="fas fa-cloud-sun fa-5x"></i>
+            <i *ngIf="projet.status == 3" class="fas fa-sun fa-5x"></i>
+        </div>
+        <div class="card-body animated rotateIn">
+            <h5 class="card-title text-center h3  "> {{ projet.nom }} </h5>
+            <p class="card-text text-justify ">{{ projet.description }}
+            </p>
+            <p class="card-text text-center "><small class="text-muted"> {{ projet.equipe }} </small></p>
+            <!-- <a (click)="voirProjet()" class="btn btn-outline-danger btn-block mt-4 py-3" style="border-color: #E30613;"> Voir plus</a> -->
+            <!-- <button (click)="voirProjet(i)" class="btn btn-outline-danger btn-block mt-4 py-3" style="border-color: #E30613;">
+                Voir plus
+            </button> -->
+        </div>
     </div>
-    <div class="card-body animated rotateIn">
-        <h5 class="card-title text-center h3  "> {{ projet.nom }} </h5>
-        <p class="card-text text-justify ">{{ projet.description }}
-        </p>
-        <p class="card-text text-center "><small class="text-muted"> {{ projet.equipe }} </small></p>
-        <a (click)="voirProjet()" class="btn btn-outline-danger btn-block mt-4 py-3" style="border-color: #E30613;"> Voir plus</a>
-        <!-- <button (click)="voirProjet(i)" class="btn btn-outline-danger btn-block mt-4 py-3" style="border-color: #E30613;">
-            Voir plus
-        </button> -->
-    </div>
-</div>

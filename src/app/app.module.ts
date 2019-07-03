@@ -44,6 +44,7 @@ import { ProjetCardComponent } from './components/projet-card/projet-card.compon
 import { SuiviProjetComponent } from './pages/suivi-projet/suivi-projet.component';
 import { FormulaireCardComponent } from './components/formulaire-card/formulaire-card.component';
 import { PopupModificationComponent } from './components/popup-modification/popup-modification.component';
+import { ListProjetComponent } from './components/list-projet/list-projet.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { PopupModificationComponent } from './components/popup-modification/popu
     SuiviProjetComponent,
     FormulaireCardComponent,
     PopupModificationComponent,
+    ListProjetComponent,
 
   ],
   imports: [

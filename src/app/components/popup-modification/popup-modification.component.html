@@ -2,7 +2,7 @@
  <form [formGroup]="modification1" (ngSubmit)="enregistrer(modification1.value)" class=" py-5">
 
  <ng-template #content let-c="close" let-d="dismiss">
-  <div class="modal-header">
+  <div class="modal-header" *ngFor="let commentaire of  ">
     <h4 class="modal-title text-center" id="modal-basic-title"> Modification Projet</h4>
     <button type="button" class="close btn btn-outline-danger" style="color: #E30613;"  aria-label="Close" (click)="d('Cross click')">
       <span aria-hidden="true">&times;</span>

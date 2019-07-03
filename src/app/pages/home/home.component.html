@@ -10,9 +10,9 @@
 
     
     <hr class="w-100">
-    <div class="card-columns  ">
+    <div>
             <!-- *ngFor="let projet of projets; let i = index" -->
-        <app-projet-card [projet]= "projet" [index]="projet._id" *ngFor="let projet of projets; let i = index"> </app-projet-card>
-       
+        <!-- <app-projet-card [projet]= "projet" [index]="projet._id" *ngFor="let projet of projets; let i = index"> </app-projet-card> -->
+       <app-list-projet [projets]="projets"> </app-list-projet>
     </div>
 </div>

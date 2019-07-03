@@ -17,7 +17,7 @@ export class ProjetIndividuelComponent implements OnInit {
       this.activatedRoute.params.subscribe( param => {
             // console.log( param ['id'] );
             this.projetI = this.projetStatusService.getProjet_Individuel( param ['id'] ).subscribe(
-              (data) => { this.projetI = data }
+              (data) => { this.projetI = data } // subcription pour avoir le descriptif des projets
             );
 });
 
