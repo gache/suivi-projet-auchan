@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { ProjetAvecStatus } from '../../entities/projets';
 import { Projet } from 'src/app/entities/projets';
 
-@Component({
+@ Component({
   selector: 'app-list-projet',
   templateUrl: './list-projet.component.html',
   styleUrls: ['./list-projet.component.css']
