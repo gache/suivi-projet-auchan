@@ -7,6 +7,7 @@ import { FranchiseComponent } from './pages/franchise/franchise.component';
 import { ProjetIndividuelComponent } from './pages/projet-individuel/projet-individuel.component';
 import { RechercheProjetComponent } from './pages/recherche-projet/recherche-projet.component';
 import { SuiviProjetComponent } from './pages/suivi-projet/suivi-projet.component';
+import { ProjetCardComponent } from './components/projet-card/projet-card.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'projet-individuel/:id', component: ProjetIndividuelComponent },
   { path: 'recherche-projet/:terme', component: RechercheProjetComponent },
   { path: 'suiviProjet/:suivi', component: SuiviProjetComponent },
+  { path: 'projet-card/:id', component: ProjetCardComponent },
   { path: '**', pathMatch:'full', redirectTo: 'home' }
 ];
 

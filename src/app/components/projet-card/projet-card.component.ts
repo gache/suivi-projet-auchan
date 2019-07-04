@@ -1,6 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProjetStatusService } from '../../services/projet-status.service';
+import { Projet, ProjetAvecStatus } from '../../entities/projets';
+
 
 @Component({
   selector: 'app-projet-card',
@@ -11,6 +13,7 @@ export class ProjetCardComponent implements OnInit {
 
   @Input() projet: any = [];
   @Input() index: number;
+ 
 
   constructor(private router: Router,
               private projetService: ProjetStatusService) { }
@@ -27,5 +30,6 @@ export class ProjetCardComponent implements OnInit {
     this.router.navigate(['projet-individuel', this.index]);
 
   }
+
 
 }

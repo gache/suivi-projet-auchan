@@ -13,6 +13,7 @@ export class HomeComponent implements OnInit {
 
   @Input() projets: ProjetAvecStatus [] = [];
 
+  selectedProject: ProjetAvecStatus;
 
   constructor(private projetStatusService: ProjetStatusService,
               private router: Router ) {
@@ -30,6 +31,11 @@ export class HomeComponent implements OnInit {
 
   voirProjet(idx: number){
     this.router.navigate(['projet-individuel', idx]);
+  }
+
+  voirDetailProjet(projet: ProjetAvecStatus) {
+    console.log(projet.nom);
+    this.selectedProject = projet;
   }
 
 //   suiviProjet(index: string) {

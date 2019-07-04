@@ -2,6 +2,7 @@ import { Component, OnInit, Input,Output, EventEmitter } from '@angular/core';
 import { ProjetStatusService} from '../../services/projet-status.service';
 import { Router } from '@angular/router';
 import { ProjetAvecStatus } from '../../entities/projets';
+import { Projet } from 'src/app/entities/projets';
 
 @Component({
   selector: 'app-list-projet',
@@ -11,7 +12,7 @@ import { ProjetAvecStatus } from '../../entities/projets';
 export class ListProjetComponent implements OnInit {
 
   @Input() projets: ProjetAvecStatus [];
-  @Output() list = new EventEmitter();
+  @Output() listClick = new EventEmitter();
 
   constructor(private router: Router) {
 
@@ -20,8 +21,8 @@ export class ListProjetComponent implements OnInit {
   ngOnInit() {
   }
 
-voirProjetList(){
-  this.router.navigate(['projet-card']);
+voirProjetList(projet: Projet){
+  this.listClick.emit(projet);
 }
 
 }

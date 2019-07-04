@@ -1,31 +1,22 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-6">
-      <table class="table table-responsive table-hover table-sm ">
-        <thead>
-          <tr>
-            <th scope="col">List Projet </th>
-            <th scope="col">Status</th>
-            <th scope="col">Equipe</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let list of projets">
-            <td> <a (click)="voirProjetList(list,$event)" href=""> {{ list.nom }} </a> </td>
-            <td>
-              <i *ngIf="list.status == 0" class="fas fa-poo-storm fa-2x"></i>
-              <i *ngIf="list.status == 1" class="fas fa-cloud fa-2x"></i>
-              <i *ngIf="list.status == 2" class="fas fa-cloud-sun fa-2x"></i>
-              <i *ngIf="list.status == 3" class="fas fa-sun fa-2x"></i>
-            </td>
-            <td> {{ list.equipe }} </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="col-6">
-      <app-projet-card> </app-projet-card>
-    </div>
-  </div>
 
-</div>
+    <table class="table table-responsive table-hover table-sm ">
+      <thead>
+        <tr>
+          <th scope="col">List Projet </th>
+          <th scope="col">Status</th>
+          <th scope="col">Equipe</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let list of projets">
+          <td> <a (click)="voirProjetList(list)"> {{ list.nom }} </a> </td>
+          <td>
+            <i *ngIf="list.status == 0" class="fas fa-poo-storm fa-2x"></i>
+            <i *ngIf="list.status == 1" class="fas fa-cloud fa-2x"></i>
+            <i *ngIf="list.status == 2" class="fas fa-cloud-sun fa-2x"></i>
+            <i *ngIf="list.status == 3" class="fas fa-sun fa-2x"></i>
+          </td>
+          <td> {{ list.equipe }} </td>
+        </tr>
+      </tbody>
+    </table>
