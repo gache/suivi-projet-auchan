@@ -67,6 +67,7 @@ constructor(config: NgbModalConfig, private modalService: NgbModal) {
       date        : moment(this.modification1.value.date).format("YYYYMMDD")
 
     });
+    this.modalService.dismissAll();
 
   }
 

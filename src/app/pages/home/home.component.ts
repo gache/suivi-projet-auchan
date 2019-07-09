@@ -14,6 +14,8 @@ export class HomeComponent implements OnInit {
   @Input() projets: ProjetAvecStatus [] = [];
 
   voirslider: ProjetAvecStatus;
+  slidingIndex:number = 0;
+  setTimeoutId;
 
   selectedProject: ProjetAvecStatus;
 
@@ -27,8 +29,17 @@ export class HomeComponent implements OnInit {
     );
    }
 
-  ngOnInit() {
 
+
+  ngOnInit() {
+    let slide = () => {
+      let index = this.slidingIndex++;
+      if (this.slidingIndex >= this.projets.length) this.slidingIndex = 0;
+      this.selectedProject = this.projets[index];
+      this.setTimeoutId = setTimeout(slide, 5000);
+    }
+
+    slide();
   }
 
   voirProjet(idx: number){
