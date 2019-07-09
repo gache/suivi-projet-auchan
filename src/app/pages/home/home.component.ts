@@ -13,6 +13,8 @@ export class HomeComponent implements OnInit {
 
   @Input() projets: ProjetAvecStatus [] = [];
 
+  voirslider: ProjetAvecStatus;
+
   selectedProject: ProjetAvecStatus;
 
   constructor(private projetStatusService: ProjetStatusService,
@@ -36,6 +38,10 @@ export class HomeComponent implements OnInit {
   voirDetailProjet(projet: ProjetAvecStatus) {
     console.log(projet.nom);
     this.selectedProject = projet;
+  }
+
+  voirList(list: ProjetAvecStatus){
+    this.voirslider = list;
   }
 
 //   suiviProjet(index: string) {

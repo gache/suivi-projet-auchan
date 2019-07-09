@@ -2,12 +2,6 @@
  <form [formGroup]="modification1" (ngSubmit)="enregistrer(modification1.value)" class=" py-5">
 
  <ng-template #content let-c="close" let-d="dismiss">
-  <div class="modal-header" *ngFor="let commentaire of  ">
-    <h4 class="modal-title text-center" id="modal-basic-title"> Modification Projet</h4>
-    <button type="button" class="close btn btn-outline-danger" style="color: #E30613;"  aria-label="Close" (click)="d('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
   <!-- Contenu du pop-up -->
 
   <div class="modal-body">
@@ -17,6 +11,7 @@
       <select class="form-control col-6" 
               id="statu1"
               formControlName="status">
+
         <option> __ </option>
         <option value="3"> Soleil </option>
         <option value="2"> Couvert </option>
@@ -47,9 +42,13 @@
   </div>
   
   <div class="modal-footer form-footer">
-    <button type="submit" 
-            class="btn btn btn-danger" 
-            (click)="enregistrer()">Enregistrer</button>
+    <button type="button" 
+            class="btn btn btn-danger close"
+            data-dismiss="modal"  
+            aria-label="Close"  
+            (click)="enregistrer()"
+            (close)="close()" 
+             > Enregistrer</button>
             {{ modification1.valid  }}
           </div>
         </ng-template>

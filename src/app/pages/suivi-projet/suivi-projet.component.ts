@@ -64,7 +64,7 @@ export class SuiviProjetComponent implements OnInit {
                                                           newAjout.equipe,
                                                           newAjout.description).subscribe(
                                                             (data) => {
-                                                              // this.suiviProjet.push(data);
+                                                              this.suiviProjet.push(data);
                                                             });
                 }
 

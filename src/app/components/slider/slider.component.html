@@ -1,0 +1,36 @@
+<!-- *ngFor="let slider of projets -->
+        
+<!-- <ngb-carousel *ngFor="let slider of projets">
+    <ng-template ngbSlide>
+      <div>
+            <i *ngIf="slider.status == 0" class="fas fa-poo-storm fa-2x"></i>
+            <i *ngIf="slider.status == 1" class="fas fa-cloud fa-2x"></i>
+            <i *ngIf="slider.status == 2" class="fas fa-cloud-sun fa-2x"></i>
+            <i *ngIf="slider.status == 3" class="fas fa-sun fa-2x"></i>
+      </div>
+      <div class="carousel-caption">
+        <h3>{{slider.nom}}</h3>
+        <p> {{slider.description}} </p>
+      </div>
+    </ng-template>
+  </ngb-carousel> -->
+<div class="container">
+  <div class="row">
+
+    <carousel >
+        <slide  *ngFor="let slider of projets">
+            <div >
+                <i *ngIf="slider.status == 0" class="fas fa-poo-storm fa-2x"> </i>
+                <i *ngIf="slider.status == 1" class="fas fa-cloud fa-2x">     </i>
+                <i *ngIf="slider.status == 2" class="fas fa-cloud-sun fa-2x"> </i>
+                <i *ngIf="slider.status == 3" class="fas fa-sun fa-2x">       </i>
+          </div>
+          <div class="">
+            
+            <h3> {{ slider.nom }} </h3>
+            <p>{{ slider.description }}</p>
+          </div>
+        </slide>
+      </carousel>
+  </div>
+</div>

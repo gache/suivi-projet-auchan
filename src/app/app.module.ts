@@ -6,10 +6,12 @@ import { CommonModule } from '@angular/common';
 
 // Importation de ngx-bootstrap
 import { AlertModule, ModalModule } from 'ngx-bootstrap';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 
 //Importation de ng-bootstrap
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 
@@ -45,6 +47,7 @@ import { SuiviProjetComponent } from './pages/suivi-projet/suivi-projet.componen
 import { FormulaireCardComponent } from './components/formulaire-card/formulaire-card.component';
 import { PopupModificationComponent } from './components/popup-modification/popup-modification.component';
 import { ListProjetComponent } from './components/list-projet/list-projet.component';
+import { SliderComponent } from './components/slider/slider.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +66,7 @@ import { ListProjetComponent } from './components/list-projet/list-projet.compon
     FormulaireCardComponent,
     PopupModificationComponent,
     ListProjetComponent,
+    SliderComponent,
 
   ],
   imports: [
@@ -76,7 +80,9 @@ import { ListProjetComponent } from './components/list-projet/list-projet.compon
     NgbModule,
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CarouselModule.forRoot()
+
   ],
   providers: [
     ProjetStatusService,

@@ -25,19 +25,19 @@ export class FormulaireCardComponent implements OnInit {
     this.formulaire1 = new FormGroup({
 
       'nomProjet': new FormControl(null, [
-        Validators.required,
-        Validators.minLength(5)],
-        this.existeProjet
-      ),
+                                            Validators.required,
+                                            Validators.minLength(5)],
+                                            this.existeProjet
+                                  ),
       'date'        : new FormControl(null, Validators.required),
       'equipe'      : new FormControl(null, Validators.required),
       'description' : new FormControl(null,
-        Validators.compose
-          ([
-            Validators.required,
-            Validators.minLength(5),
-            Validators.maxLength(200)
-          ]))
+                                            Validators.compose
+                                          ([
+                                            Validators.required,
+                                            Validators.minLength(3),
+                                            Validators.maxLength(200)
+                                          ]))
     });
 
   // observable pour la detection de changement sur le sur l'input nomProjet

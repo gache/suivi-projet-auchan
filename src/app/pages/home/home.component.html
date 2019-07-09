@@ -17,7 +17,9 @@
                     <div class="col-6">
                           <!-- *ngFor="let projet of projets; let i = index" -->
         <!-- <app-projet-card [projet]= "projet" [index]="projet._id" *ngFor="let projet of projets; let i = index"> </app-projet-card> -->
-       <app-list-projet (listClick)="voirDetailProjet($event)" [projets]="projets"> </app-list-projet>
+                        <app-list-projet (listClick)="voirDetailProjet($event)" [projets]="projets"> </app-list-projet>
+                        <app-slider (listSlider)="voirList($event)" [projets]="projets"> </app-slider>
+                      
                     </div>
                     <div class="col-6">
                         <app-projet-card *ngIf="selectedProject" [projet]="selectedProject">  </app-projet-card>
@@ -30,5 +32,4 @@
     
     </div>
 </div>
-
 

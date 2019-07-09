@@ -4,6 +4,7 @@ import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Projet } from '../../entities/projets';
 import * as moment from 'moment'; // Importation de la librerie pour la date
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-popup-modification',
@@ -19,7 +20,7 @@ export class PopupModificationComponent implements OnInit {
   modalRef : BsModalRef | null;
   modalRef2: BsModalRef;
 
-  // parametre de la validation
+  // parametre de la validation du formulaire 
 
   modification1 : FormGroup;
   commentaire   : string;
@@ -44,10 +45,14 @@ constructor(config: NgbModalConfig, private modalService: NgbModal) {
 
   ngOnInit() {
   }
+
+  // funtion pour ouvrir le modal "Modification Projet"
   open(content) {
     this.modalService.open(content);
   }
 
+ 
+  // funtion pour enregistre les modification du modal
   enregistrer() {
 
   console.log(this.modification1.value);
@@ -63,6 +68,10 @@ constructor(config: NgbModalConfig, private modalService: NgbModal) {
 
     });
 
+  }
+
+  close(){
+    $('.modal').modal('hiden');
   }
 
 }
