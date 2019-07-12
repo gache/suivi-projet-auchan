@@ -1,17 +1,24 @@
+<!-- Creation de la barre de navigation  -->
+
 <div class="navegation py-1">
     <nav class=" nav-principal navbar navbar-expand-lg navbar-light bg-faded">
         <a class="navbar-brand" href="#">
+            <!-- Logo d'auchan retail et ses dimensions -->
             <img src="../../../../assets/img/auchan-logo.svg" alt="logo" height="87px" width="320px">
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav_principale" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="montrer navigation">
 
-  <span class="">    <i class="fas fa-bars primary"></i> </span>
-</button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav_principale"
+            aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="montrer navigation">
+            <!-- Logo  de barre de navigation quand la page est dans un écran plus petit -->
+            <span class=""> <i class="fas fa-bars primary"></i> </span>
+        </button>
+
         <div class="container">
             <div class="collapse navbar-collapse w-100 " id="nav_principale">
-
+                <!--   liste des links et ses routes -->
                 <ul class="nav nav-justified  w-100 flex-column flex-sm-row">
                     <li class="nav-item" routerLinkActive="active">
+                        <!-- Activation  de la route pour information le mot 'home' etc est celui qu'on a mis sur le fichier routes.ts-->
                         <a class="nav-link" [routerLink]="['home']">ACCUEIL</a>
                     </li>
 
@@ -31,11 +38,15 @@
                         <a class="nav-link" [routerLink]="['franchise']">FRANCHISE </a>
                     </li>
                     <div class="form-inline my-2 my-lg-0 ">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Rechercher Projet" aria-label="Search" (keyup.enter)="rechercheProjet(recherchetext.value)" #recherchetext>
+                        <!--  creation d'un input faire un recherche de projet -->
+                        <input class="form-control mr-sm-2" type="search" placeholder="Rechercher Projet"
+                            aria-label="Search" (keyup.enter)="rechercheProjet(recherchetext.value)" #recherchetext>
 
-
-                        <button (click)="rechercheProjet(recherchetext.value) " class="btn btn-outline-danger my- my-sm-0" style="border-color: #E30613;" type="button">Recherche
-                          </button>
+                        <button (click)="rechercheProjet(recherchetext.value) "
+                            class="btn btn-outline-danger my- my-sm-0" style="border-color: #E30613;"
+                            type="button">Recherche
+                        </button>
+                        <!-- Creation d'un bouton et la function pour faire un recherche de projet -->
                     </div>
                 </ul>
 

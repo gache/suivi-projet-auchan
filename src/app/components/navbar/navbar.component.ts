@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+// Importation de la route
 import { Router } from '@angular/router';
 
 
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
 
 
-
+// on a injecte la route dans le constructor
   constructor(private route: Router,
                ) {
 
@@ -18,10 +19,10 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {
   }
-
-rechercheProjet(terme: string){
+// Function pour la recherche de projet en plus pour naviger vers la page recherche projet
+  rechercheProjet(terme: string) {
     console.log(terme);
-this.route.navigate(['/recherche-projet', terme]);
+    this.route.navigate(['/recherche-projet', terme]);
 
 
   }

@@ -3,8 +3,8 @@ import { BsModalRef } from 'ngx-bootstrap/modal';
 import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Projet } from '../../entities/projets';
-import * as moment from 'moment'; // Importation de la librerie pour la date
-import * as $ from 'jquery';
+import * as moment from 'moment'; // Importation de la librerie moment pour la date
+import * as $ from 'jquery';     // importation du $ avec jqyery
 
 @Component({
   selector: 'app-popup-modification',
@@ -13,33 +13,34 @@ import * as $ from 'jquery';
 })
 export class PopupModificationComponent implements OnInit {
 
-  @Input () projet: Projet;
+  @Input() projet: Projet;
   @Output() change = new EventEmitter();
 
-// Modal 
-  modalRef : BsModalRef | null;
+  // Modal 
+  modalRef: BsModalRef | null;
   modalRef2: BsModalRef;
 
-  // parametre de la validation du formulaire 
 
-  modification1 : FormGroup;
-  commentaire   : string;
-  Enregistrer   : string;
+  // formulaire 
+  modification1: FormGroup;
+  commentaire: string;
+  Enregistrer: string;
 
-constructor(config: NgbModalConfig, private modalService: NgbModal) { 
-  config.backdrop = 'static';
-  config.keyboard = false;
+  constructor(config: NgbModalConfig, private modalService: NgbModal) {
+    config.backdrop = 'static';
+    config.keyboard = false;
 
-  this.modification1 = new FormGroup({
+    // Creation des parametres de la validation du formulaire du popup
+    this.modification1 = new FormGroup({
 
-    'status'      : new FormControl(null, Validators.required),
-    'date'        : new FormControl(null, Validators.required ),
-    'commentaire' : new FormControl(null, Validators.compose
-                                        ([
-                                            Validators.required,
-                                            Validators.minLength(3),
-                                            Validators.maxLength(200)
-                                          ]))
+      'status'     : new FormControl(null, Validators.required),
+      'date'       : new FormControl(null, Validators.required),
+      'commentaire': new FormControl(null, Validators.compose
+        ([
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(200)
+        ]))
     });
   }
 
@@ -51,27 +52,29 @@ constructor(config: NgbModalConfig, private modalService: NgbModal) {
     this.modalService.open(content);
   }
 
- 
-  // funtion pour enregistre les modification du modal
+
+  // funtion pour enregistre les modification du modal avec l'output
   enregistrer() {
 
-  console.log(this.modification1.value);
-  console.log('ici on emet');
+    console.log(this.modification1.value);
+    console.log('ici on emet');
 
     this.commentaire = this.modification1.value.commentaire;
 
     this.change.emit({
 
-      status      : this.modification1.value.status,
-      commentaire : this.modification1.value.commentaire,
-      date        : moment(this.modification1.value.date).format("YYYYMMDD")
+      status: this.modification1.value.status,
+      commentaire: this.modification1.value.commentaire,
+      // Utilisation de la librerie moment  pour le changement de la date
+      date: moment(this.modification1.value.date).format("YYYYMMDD")
 
     });
+     //  fermeture du popup
     this.modalService.dismissAll();
 
   }
-
-  close(){
+ 
+  close() {
     $('.modal').modal('hiden');
   }
 

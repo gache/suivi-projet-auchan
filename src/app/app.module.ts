@@ -13,8 +13,6 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
-
-
 // importacion http
 import { HttpClientModule } from '@angular/common/http';
 
@@ -30,7 +28,7 @@ import { APPROUTING } from './app.auchan.routes';
 import { ProjetStatusService  } from './services/projet-status.service';
 
 
-//Components
+// Components
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from './pages/footer/footer.component';

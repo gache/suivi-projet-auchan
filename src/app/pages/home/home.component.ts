@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ProjetStatusService} from '../../services/projet-status.service';
-import { ProjetAvecStatus } from '../../entities/projets';
-import { Router } from '@angular/router';
+import { ProjetStatusService} from '../../services/projet-status.service'; // Importation du service
+import { ProjetAvecStatus } from '../../entities/projets';  // Importation de la interface
+import { Router } from '@angular/router'; // Importation de la route
 
 
 @Component({
@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
   @Input() projets: ProjetAvecStatus [] = [];
 
   voirslider: ProjetAvecStatus;
-  slidingIndex:number = 0;
+  slidingIndex: number = 0;
   setTimeoutId;
 
   selectedProject: ProjetAvecStatus;

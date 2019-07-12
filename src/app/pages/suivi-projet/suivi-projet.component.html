@@ -1,3 +1,4 @@
+<!-- Creation de la page Suivi projet -->
 <div class="suivi">
   <h2 class="text-center  encabezado" style="color: #E30613;">
     <small class=" text-uppercase d-block animated fadeIn fast"> Suivi de Projets </small>
@@ -28,24 +29,24 @@
         <i *ngIf="suivi.status == 2" class="fas fa-cloud-sun fa-5x"></i>
         <i *ngIf="suivi.status == 3" class="fas fa-sun fa-5x"></i>
       </div>
-
-        <div class="card-body">
+  
+      <div class="card-body">
         <h5 class="card-title"> {{ suivi.nom }} </h5>
         <p class="card-text text-justify"> {{ suivi.commentaire }} </p>
         <p class="card-text"> {{ suivi.equipe }} </p>
-        </div>
-
-      <!-- Modal -->
-
+      </div>
+  
+      <!-- on appel le Modal avec la balise "app-popup-modification" et son event -->
       <app-popup-modification (change)="setStatus(suivi,$event)"> </app-popup-modification>
-
       <!-- Fin du modal -->
+  
       <div class="card-footer">
         <small class="text-muted text-center"> {{ suivi.date }} </small>
       </div>
-    </div> <!-- Card-->
-  </div> <!-- card-columns-->
+    </div> <!-- fermeture de la class Card-->
+  </div> <!-- fermeture de la class card-columns-->
 
   <br>
-  <!-- Formulaire  -->
-  <app-formulaire-card (ajoutChangement)="setAjouter(suivi,$event)"> </app-formulaire-card>
+  <!-- on appel le Formulaire  avec la balise "app-formulaire-card" et son event -->
+  <app-formulaire-card (ajoutChangement)="setAjouter($event)"> </app-formulaire-card>
+      <!-- Fin du Formulaire -->

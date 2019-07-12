@@ -1,62 +1,44 @@
- <!-- Pop-up -->
- <form [formGroup]="modification1" (ngSubmit)="enregistrer(modification1.value)" class=" py-5">
+<!-- Pop-up -->
+<form [formGroup]="modification1" (ngSubmit)="enregistrer(modification1.value)" class=" py-5">
 
- <ng-template #content let-c="close" let-d="dismiss">
-  <!-- Contenu du pop-up -->
+  <ng-template #content let-c="close" let-d="dismiss">
+    <!-- Contenu du pop-up -->
 
-  <div class="modal-body">
+    <div class="modal-body">
+      <!--  input html avec le "Status" et sa  liason entre fichier popup-modification.ts  -->
+      <div class="form-group row">
+        <label class="col-3" for="statu1" style="color: #E30613;">Status</label>
+        <select class="form-control col-6" id="statu1" formControlName="status">
 
-    <div class="form-group row">
-      <label class="col-3" for="statu1" style="color: #E30613;">Status</label>
-      <select class="form-control col-6" 
-              id="statu1"
-              formControlName="status">
-
-        <option> __ </option>
-        <option value="3"> Soleil </option>
-        <option value="2"> Couvert </option>
-        <option value="1"> Nuage </option>
-        <option value="0"> Orage</option>
-      </select>
+          <option> __ </option>
+          <option value="3"> Soleil </option>
+          <option value="2"> Couvert </option>
+          <option value="1"> Nuage </option>
+          <option value="0"> Orage</option>
+        </select>
+      </div>
+      <!--  input html avec le "Date" et sa  liason entre fichier popup-modification.ts  -->
+      <div class="form-group row">
+        <label class="col-3" for="date" style="color: #E30613;">Date</label>
+        <input type="date" class="form-control col-6" id="date" placeholder="Date" formControlName="date">
+      </div>
+      <!--  input html avec le "Commentaire" et sa liason entre fichier popup-modification.ts  -->
+      <div class="form-group row">
+        <label class="col-3" for="commentaire1" style="color: #E30613;"> Commentaire </label>
+        <textarea class="form-control col-6" id="commentaire1" formControlName="commentaire" rows="5">
+      </textarea>
+      </div>
     </div>
-
-    <div class="form-group row">
-
-      <label class="col-3" for="date" style="color: #E30613;">Date</label>
-
-      <input type="date" 
-              class="form-control col-6" 
-              id="date"
-              placeholder="Date" 
-              formControlName="date">
+    <!-- Creation du bouton enregistre avec sa function et sa liason avec le fichier popup-modification.ts  -->
+    <div class="modal-footer form-footer">
+      <button type="button" class="btn btn btn-danger close" data-dismiss="modal" aria-label="Close"
+        (click)="enregistrer()" (close)="close()"> Enregistrer</button>
+      {{ modification1.valid  }}
     </div>
+  </ng-template>
+</form>
 
-    <div class="form-group row">
-      <label class="col-3" for="commentaire1" style="color: #E30613;"> Commentaire </label>
-      <textarea class="form-control col-6" 
-                id="commentaire1" 
-                formControlName="commentaire"
-                rows="5"></textarea>
-    </div>
+<!-- Creation du bouton Modificatio projet avec sa function et sa liason avec le fichier popup-modification.ts  -->
+<button class="btn btn-lg btn-outline-primary" (click)="open(content)">Modification Projet</button>
 
-  </div>
-  
-  <div class="modal-footer form-footer">
-    <button type="button" 
-            class="btn btn btn-danger close"
-            data-dismiss="modal"  
-            aria-label="Close"  
-            (click)="enregistrer()"
-            (close)="close()" 
-             > Enregistrer</button>
-            {{ modification1.valid  }}
-          </div>
-        </ng-template>
-      </form>
-      
-      <button class="btn btn-lg btn-outline-primary" (click)="open(content)">Modification Projet</button>
-      
-      <br>
-
-
-<!-- style="color: #E30613;"  -->
+<br>

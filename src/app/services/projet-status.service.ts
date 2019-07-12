@@ -56,7 +56,7 @@ rechercheProjet(termino: string): ProjetAvecStatus[] {
 
 // Recuperation de l'Id de florent
 getProjet_Individuel(idx: string) {
-  return this.getProjet().pipe(map((data:ProjetAvecStatus[]) => {
+  return this.getProjet().pipe(map((data: ProjetAvecStatus[]) => {
     for(let projet of data) {
       console.log(idx+" - " +projet._id);
       if(projet._id == idx) return projet;

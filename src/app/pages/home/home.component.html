@@ -2,34 +2,45 @@
     <h2 class="text-center  encabezado" style="color: #E30613;">
         <small class=" text-uppercase d-block animated fadeIn fast"> Status et List de projets </small>
     </h2>
- <!-- <a (click)="suiviProjet()" class="btn btn-outline-danger mt-4" style="border-color: #E30613;">
+    <!-- <a (click)="suiviProjet()" class="btn btn-outline-danger mt-4" style="border-color: #E30613;">
       Suivi de projet</a> -->
-
-
-     <a [routerLink]="['/suiviProjet/suivi']" class="btn btn-outline-danger mt-4" style="border-color: #E30613;"> Suivi de projet</a>
-
-    
-    <hr class="w-100">
     <div>
+        <hr class="w-100 ">
 
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-6">
-                          <!-- *ngFor="let projet of projets; let i = index" -->
-        <!-- <app-projet-card [projet]= "projet" [index]="projet._id" *ngFor="let projet of projets; let i = index"> </app-projet-card> -->
-                        <app-list-projet (listClick)="voirDetailProjet($event)" [projets]="projets"> </app-list-projet>
-                        <!-- <app-slider (listSlider)="voirList($event)" [projets]="projets"> </app-slider> -->
-                      
-                    </div>
-                    <div class="col-6">
-                        <app-projet-card *ngIf="selectedProject" [projet]="selectedProject">  </app-projet-card>
+        <!-- Création de la route avec le bouton suivi projet -->
+        <div class="container">
+            <div class="row">
+                <div class="col-6 py-3">
+                    <a [routerLink]="['/suiviProjet/suivi']" class="btn btn-outline-danger mt-4"
+                        style="border-color: #E30613;"> Suivi de projet</a>
+                </div>
+
+        <!-- Création du slider  -->
+                <div class="col-6 py-5">
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                        <label class="custom-control-label" for="customSwitch1"> Slider </label>
                     </div>
                 </div>
-            
             </div>
-          
+        </div>
 
-    
+        <!--  j'appel des composants app-list-projet et je declanche l'event de mon output -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-6">
+                    <!-- *ngFor="let projet of projets; let i = index" -->
+                    <!-- <app-projet-card [projet]= "projet" [index]="projet._id" *ngFor="let projet of projets; let i = index"> </app-projet-card> -->
+                    <app-list-projet (listClick)="voirDetailProjet($event)" [projets]="projets"> </app-list-projet>
+                    <!-- <app-slider (listSlider)="voirList($event)" [projets]="projets"> </app-slider> -->
+
+                </div>
+                
+        <!--  j'appel des composants app-projet-card et je declanche mon input -->
+                <div class="col-6">
+                    <app-projet-card *ngIf="selectedProject" [projet]="selectedProject"> </app-projet-card>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
-

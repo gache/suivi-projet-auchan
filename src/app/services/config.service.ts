@@ -4,9 +4,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ConfigService {
-
+  // Api
   private conf = {
-    "API_URL": "http://35.180.126.94:5000",
+    "API_URL": "http://35.180.27.64:5000",
   };
 
   constructor() { }

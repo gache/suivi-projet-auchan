@@ -1,5 +1,6 @@
 <!-- Formulaire pour ajouter un projet  -->
 
+<!-- tittre du formulaire  -->
 <div class="suivi">
     <h2 class="text-center  encabezado" style="color: #E30613;">
         <small class=" text-uppercase d-block animated fadeIn fast"> Ajouter un Projet </small>
@@ -7,7 +8,7 @@
 </div>
 
 <hr>
-
+<!-- input html avec le "nom Projet" et sa  liason entre fichier formulaire-card.ts -->
 <form [formGroup]="formulaire1" (ngSubmit)="ajouter(formulaire1.value)" class=" py-5">
 
     <div>
@@ -15,72 +16,59 @@
 
             <label class="col-2" for="nomProjet1" style="color: #E30613;">Nom Projet</label>
 
-            <input type="text" 
-                   class="form-control col-6" 
-                   id="nomProjet1"
-                   placeholder="Projet" 
-                   formControlName="nomProjet">
+            <input type="text" class="form-control col-6" id="nomProjet1" placeholder="Projet"
+                formControlName="nomProjet">
         </div>
 
-            <!-- Message si ne respecte si l'utilisateur  ne respecte pas la condition  -->
-            <div class="alert form-control-feedback" 
-                 *ngIf="!formulaire1.controls['nomProjet'].valid && formulaire1.controls['nomProjet'].touched">
-                {{ messageAlert }}
-             </div>
-
+        <!-- Message d'alert si l'utilisateur  ne respecte pas la condition  -->
+        <div class="alert form-control-feedback"
+            *ngIf="!formulaire1.controls['nomProjet'].valid && formulaire1.controls['nomProjet'].touched">
+            {{ messageAlert }}
+        </div>
+        <!-- input html avec le "Date" et sa  liason entre fichier formulaire-card.ts -->
         <div class="form-group row">
             <label class="col-2" for="nomProjet1" style="color: #E30613;">Date</label>
-                <input type="date" 
-                       class="form-control col-6" 
-                       id="nomProjet1"
-                       placeholder="Date" 
-                       formControlName="date">
+            <input type="date" class="form-control col-6" id="nomProjet1" placeholder="Date" formControlName="date">
+        </div>
+        <!-- Message d'alert si l'utilisateur  ne respecte pas la condition  -->
+        <div class="alert form-control-feedback"
+            *ngIf="!formulaire1.controls['date'].valid && formulaire1.controls['date'].touched">
+            La date est obligatoire
         </div>
 
-        <div class="alert form-control-feedback" 
-        *ngIf="!formulaire1.controls['date'].valid && formulaire1.controls['date'].touched">
-             La date est obligatoire 
-        </div>
-       
-
+        <!-- input html avec "Equipe" et sa  liason entre fichier formulaire-card.ts -->
         <div class="form-group row">
-
             <label class="col-2" for="statuProjet" style="color: #E30613;">Equipe</label>
-            <select class="form-control col-6" 
-                    id="statuProjet" 
-                    formControlName="equipe">
-                    <option>   __       </option>
-                    <option>   OFEBAM   </option>
-                    <option>   Projet   </option>
-                    <option> Run-Export </option>
-                    <option> Franchise  </option>
+            <select class="form-control col-6" id="statuProjet" formControlName="equipe">
+                <option> __ </option>
+                <option> OFEBAM </option>
+                <option> Projet </option>
+                <option> Run-Export </option>
+                <option> Franchise </option>
 
             </select>
         </div>
-        <!-- Message pour que l'utilisateur puisse choisir un groupe -->
-        <div class="alert"
-             *ngIf="!formulaire1.controls['equipe'].valid && formulaire1.controls['equipe'].touched"> Choisir un Equipe </div>
+        <!-- Message d'alert si l'utilisateur n'a pas choisir son groupe -->
+        <div class="alert" *ngIf="!formulaire1.controls['equipe'].valid && formulaire1.controls['equipe'].touched">
+            Choisir un Equipe </div>
 
-        
+        <!-- input html avec "Despcription Projet" et sa  liason entre fichier formulaire-card.ts -->
         <div class="form-group row">
             <label class="col-2" for="description1" style="color: #E30613;">Despcription Projet</label>
 
-            <textarea class="form-control col-6"
-                      id="description1" 
-                      rows="5" 
-                      formControlName="description">
+            <textarea class="form-control col-6" id="description1" rows="5" formControlName="description">
             </textarea>
         </div>
-        <!-- Message pour afficher le minimun de caractere à taper -->
-        <div class="alert" 
-            *ngIf="!formulaire1.controls['description'].valid && formulaire1.controls['description'].touched"> Minimun 5 caracteres </div>
+        <!-- Message d'alert ou information si l'utilisateur n'a pas saisi un minimun de caractere à taper -->
+        <div class="alert"
+            *ngIf="!formulaire1.controls['description'].valid && formulaire1.controls['description'].touched"> Minimun 5
+            caracteres </div>
 
         <label class="col-1 col-form-label ">&nbsp;</label>
         <div class="input-group col-6">
-            <button type="submit" 
-                    class="btn btn-danger"
-                    [disabled]="!formulaire1.valid">
-                    Ajouter
+            <!-- bouton pour ajouter le projet -->
+            <button type="submit" class="btn btn-danger" [disabled]="!formulaire1.valid">
+                Ajouter
             </button>
         </div>
     </div>

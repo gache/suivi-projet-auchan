@@ -1,3 +1,4 @@
+<!--  Creation d'une table avec la liste de projets -->
 
     <table class="table table-responsive table-hover table-sm  ">
       <thead class="thead-dark">
@@ -11,6 +12,7 @@
         <tr *ngFor="let list of projets">
           <td> <a (click)="voirProjetList(list)"> {{ list.nom }} </a> </td>
           <td>
+            <!-- les icones -->
             <i *ngIf="list.status == 0" class="fas fa-poo-storm fa-2x"></i>
             <i *ngIf="list.status == 1" class="fas fa-cloud fa-2x"></i>
             <i *ngIf="list.status == 2" class="fas fa-cloud-sun fa-2x"></i>

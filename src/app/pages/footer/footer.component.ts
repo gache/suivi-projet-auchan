@@ -9,6 +9,7 @@ export class FooterComponent implements OnInit {
 
   annee: number;
   constructor() {
+    // Function pour avoir l'annee de manière automatique
        this.annee = new Date().getFullYear();
   }
 

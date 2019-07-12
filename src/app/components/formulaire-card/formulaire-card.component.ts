@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./formulaire-card.component.css']
 })
 export class FormulaireCardComponent implements OnInit {
-
+// Output qui emet le changement sur le formulaire
   @Output() ajoutChangement = new EventEmitter();
 
   formulaire1  : FormGroup;
@@ -21,7 +21,7 @@ export class FormulaireCardComponent implements OnInit {
   messageAlert : string = "Le Nom du projet est nécessaire";
 
   constructor() {
-
+  //  Creation de la validation du formulaire par la data 
     this.formulaire1 = new FormGroup({
 
       'nomProjet': new FormControl(null, [
@@ -44,8 +44,9 @@ export class FormulaireCardComponent implements OnInit {
   this.formulaire1.controls['nomProjet'].valueChanges
       .subscribe(data => {
       console.log(data);
-    })
+    });
 
+  // observable pour la detection de changement  de statu sur le sur l'input nomProjet
   this.formulaire1.controls['nomProjet'].statusChanges
       .subscribe(data => {
       console.log(data);
@@ -55,6 +56,7 @@ export class FormulaireCardComponent implements OnInit {
   ngOnInit() {
   }
 
+  // bouton ajouter qui ajoute le changement sur les input du formulaire en plus emet les changement au output ajoutChangement
   ajouter(Ajouter) {
 
     console.log(this.formulaire1.value);

@@ -13,7 +13,7 @@ export class ProjetCardComponent implements OnInit {
 
   @Input() projet: any = [];
   @Input() index: number;
- 
+
 
   constructor(private router: Router,
               private projetService: ProjetStatusService) { }
