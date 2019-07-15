@@ -8,6 +8,9 @@ import { CommonModule } from '@angular/common';
 import { AlertModule, ModalModule } from 'ngx-bootstrap';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 
+// Importation Spinner
+import { NgxSpinnerModule } from 'ngx-spinner';
+
 
 //Importation de ng-bootstrap
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -79,11 +82,14 @@ import { SliderComponent } from './components/slider/slider.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    CarouselModule.forRoot()
+    CarouselModule.forRoot(),
+    NgxSpinnerModule
+
 
   ],
   providers: [
     ProjetStatusService,
+
   ],
   bootstrap: [AppComponent]
 })
