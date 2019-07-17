@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
-
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 
@@ -13,6 +13,7 @@ import { Observable } from 'rxjs';
 export class FormulaireCardComponent implements OnInit {
 // Output qui emet le changement sur le formulaire
   @Output() ajoutChangement = new EventEmitter();
+  @Output() spinnerAjouter = new EventEmitter();
 
   formulaire1  : FormGroup;
   description  : string;
@@ -20,7 +21,7 @@ export class FormulaireCardComponent implements OnInit {
   nomProjet    : string;
   messageAlert : string = "Le Nom du projet est nécessaire";
 
-  constructor() {
+  constructor( private spinnerService: NgxSpinnerService ) {
   //  Creation de la validation du formulaire par la data 
     this.formulaire1 = new FormGroup({
 
@@ -41,19 +42,26 @@ export class FormulaireCardComponent implements OnInit {
     });
 
   // observable pour la detection de changement sur le sur l'input nomProjet
-  this.formulaire1.controls['nomProjet'].valueChanges
+    this.formulaire1.controls['nomProjet'].valueChanges
       .subscribe(data => {
-      console.log(data);
-    });
+        console.log(data);
+      });
 
-  // observable pour la detection de changement  de statu sur le sur l'input nomProjet
-  this.formulaire1.controls['nomProjet'].statusChanges
+    // observable pour la detection de changement  de statu sur le sur l'input nomProjet
+    this.formulaire1.controls['nomProjet'].statusChanges
       .subscribe(data => {
-      console.log(data);
-    });
-}
+        console.log(data);
+      });
+  }
 
   ngOnInit() {
+  }
+// methohe pour le bouton loading
+  showSpinner() {
+    this.spinnerService.show();
+    setTimeout(() => {
+      this.spinnerService.hide();
+    }, 3000);
   }
 
   // bouton ajouter qui ajoute le changement sur les input du formulaire en plus emet les changement au output ajoutChangement

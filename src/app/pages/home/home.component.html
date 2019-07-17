@@ -14,11 +14,10 @@
                     <a [routerLink]="['/suiviProjet/suivi']" class="btn btn-outline-danger mt-4"
                         style="border-color: #E30613;"> Suivi de projet</a>
                 </div>
-
-        <!-- Création du slider  -->
+<!-- Création du slider  -->
                 <div class="col-6 py-5">
                     <div class="custom-control custom-switch">
-                        <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                        <input type="checkbox" class="custom-control-input"(click)="booleanChange()" id="customSwitch1">
                         <label class="custom-control-label" for="customSwitch1"> Slider </label>
                     </div>
                 </div>
@@ -35,7 +34,7 @@
                     <!-- <app-slider (listSlider)="voirList($event)" [projets]="projets"> </app-slider> -->
 
                 </div>
-                
+
         <!--  j'appel des composants app-projet-card et je declanche mon input -->
                 <div class="col-6">
                     <app-projet-card *ngIf="selectedProject" [projet]="selectedProject"> </app-projet-card>

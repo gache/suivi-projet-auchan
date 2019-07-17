@@ -67,7 +67,7 @@
         <label class="col-1 col-form-label ">&nbsp;</label>
         <div class="input-group col-6">
             <!-- bouton pour ajouter le projet -->
-            <button type="submit" class="btn btn-danger" [disabled]="!formulaire1.valid">
+            <button type="submit" class="btn btn-danger" [disabled]="!formulaire1.valid" (click)="showSpinner()">
                 Ajouter
             </button>
         </div>

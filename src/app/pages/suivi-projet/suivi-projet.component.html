@@ -42,11 +42,11 @@
   
       <div class="card-footer">
         <small class="text-muted text-center"> {{ suivi.date }} </small>
-      </div>
+</div>
     </div> <!-- fermeture de la class Card-->
   </div> <!-- fermeture de la class card-columns-->
 
   <br>
   <!-- on appel le Formulaire  avec la balise "app-formulaire-card" et son event -->
-  <app-formulaire-card (ajoutChangement)="setAjouter($event)"> </app-formulaire-card>
+  <app-formulaire-card (ajoutChangement)="setAjouter($event)" (spinnerAjouter)="($event)"> </app-formulaire-card>
       <!-- Fin du Formulaire -->

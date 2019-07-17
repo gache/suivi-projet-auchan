@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ProjetStatusService} from '../../services/projet-status.service'; // Importation du service
+import { ProjetStatusService } from '../../services/projet-status.service'; // Importation du service
 import { ProjetAvecStatus } from '../../entities/projets';  // Importation de la interface
 import { Router } from '@angular/router'; // Importation de la route
 
@@ -11,38 +11,49 @@ import { Router } from '@angular/router'; // Importation de la route
 })
 export class HomeComponent implements OnInit {
 
-  @Input() projets: ProjetAvecStatus [] = [];
+  @Input() projets: ProjetAvecStatus[] = [];
 
   voirslider: ProjetAvecStatus;
-  slidingIndex: number = 0;
+  slidingIndex = 0;
   setTimeoutId;
+  sliding = true;
 
   selectedProject: ProjetAvecStatus;
 
-  constructor(private projetStatusService: ProjetStatusService,
-              private router: Router ) {
+  constructor(private projetStatusService: ProjetStatusService, private router: Router) {
     this.projetStatusService.getProjet().subscribe(
       (data) => {
         this.projets = data;
         console.log(this.projets);
       }
     );
-   }
+  }
 
 
 
   ngOnInit() {
-    let slide = () => {
-      let index = this.slidingIndex++;
-      if (this.slidingIndex >= this.projets.length) this.slidingIndex = 0;
-      this.selectedProject = this.projets[index];
-      this.setTimeoutId = setTimeout(slide, 5000);
-    }
+    this.startSlider();
+  }
+startSlider() {
+    let index;
 
-    slide();
+    if (this.sliding) {
+      index = this.slidingIndex++;
+
+      if (this.slidingIndex >= this.projets.length) {
+        this.slidingIndex = 0;
+      }
+      this.selectedProject = this.projets[index];
+    }
+    this.setTimeoutId = setTimeout(() => {
+      this.startSlider();
+    }, 3000);
   }
 
-  voirProjet(idx: number){
+  booleanChange() {
+    this.sliding = !this.sliding;
+  }
+  voirProjet(idx: number) {
     this.router.navigate(['projet-individuel', idx]);
   }
 
@@ -51,13 +62,13 @@ export class HomeComponent implements OnInit {
     this.selectedProject = projet;
   }
 
-  voirList(list: ProjetAvecStatus){
+  voirList(list: ProjetAvecStatus) {
     this.voirslider = list;
   }
 
-//   suiviProjet(index: string) {
-//     // console.log(this.index);
-//     this.router.navigate(['suiviProjet', index]);
+  //   suiviProjet(index: string) {
+  //     // console.log(this.index);
+  //     this.router.navigate(['suiviProjet', index]);
 
-// }
+  // }
 }
